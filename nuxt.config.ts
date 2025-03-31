@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 		baseURL: "/",
 	},
 	compatibilityDate: "2024-11-01",
-	devtools: { enabled: true },
+	devtools: { enabled: false },
 	srcDir: "src/",
 	eslint: {
 		config: {

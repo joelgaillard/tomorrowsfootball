@@ -1,18 +1,18 @@
 <script setup>
-import { ref } from "vue";
+	import { ref } from "vue";
 
-const navItems = ref([
-    { to: "/serie", label: "Serie" },
-    { to: "/become-a-coach", label: "Become a coach" },
-    { to: "/quests", label: "Quests" },
-    { to: "/events", label: "Events" },
-]);
+	const navItems = ref([
+		{ to: "/serie", label: "Serie" },
+		{ to: "/become-a-coach", label: "Become a coach" },
+		{ to: "/quests", label: "Quests" },
+		{ to: "/events", label: "Events" },
+	]);
 </script>
 
 <template>
 	<div class="navbar bg-base-100 shadow-sm">
 		<div class="flex-1">
-			<nuxt-link to="/" class="btn btn-ghost text-xl">daisyUI</nuxt-link>
+			<nuxt-link to="/" class="btn btn-ghost text-xl">Logo</nuxt-link>
 		</div>
 		<div class="flex-none">
 			<div class="dropdown dropdown-end">
