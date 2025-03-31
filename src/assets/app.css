@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme {
+	--font-sans: "League Spartan", "sans-serif";
+}
+
 @plugin "daisyui/theme" {
 	name: "TWF";
 	default: false;
