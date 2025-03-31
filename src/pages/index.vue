@@ -3,6 +3,5 @@
 		<h1 class="">Welcome to the Home Page</h1>
 		<p class="btn btn-primary">Boo</p>
         <BaseCard title="test" />
-		<Essai />
 	</div>
 </template>
