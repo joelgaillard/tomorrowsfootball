@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   ssr: true,
   app: {
-    baseURL: '/tomorrowsfootball/',
+    baseURL: '/',
   },
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -24,5 +24,9 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/icon'
-  ]
+  ],
+  nitro: {
+    preset: 'netlify'
+  }
+
 })
