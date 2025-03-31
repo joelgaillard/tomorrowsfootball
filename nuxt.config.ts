@@ -10,8 +10,13 @@ export default defineNuxtConfig({
 					rel: "stylesheet",
 					href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu",
 				},
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap'
+        },
 			],
 		},
+
 		baseURL: "/",
 	},
 	compatibilityDate: "2024-11-01",
