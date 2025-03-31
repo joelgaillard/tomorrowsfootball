@@ -2,6 +2,9 @@ import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+  app: {
+    baseURL: '/tomorrowsfootball/',
+  },
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   srcDir: 'src/',
@@ -16,7 +19,6 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
   css: ["~/assets/app.css"],
-  
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',
