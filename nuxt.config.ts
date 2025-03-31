@@ -24,5 +24,9 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/icon'
-  ]
+  ],
+  nitro: {
+    preset: 'netlify'
+  }
+
 })
