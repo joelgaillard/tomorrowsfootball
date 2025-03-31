@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import { fileURLToPath } from "node:url";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	ssr: true,
@@ -29,12 +30,13 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-	vite: {
-		plugins: [tailwindcss()],
-	},
 	css: ["~/assets/app.css"],
 	modules: ["@nuxt/eslint", "@nuxt/image", "@nuxt/ui", "@nuxt/icon"],
 	nitro: {
 		preset: "netlify",
 	},
+	alias: {
+		'images': fileURLToPath(new URL('./public/images', import.meta.url)),
+	  }
+	
 });
