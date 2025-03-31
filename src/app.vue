@@ -1,5 +1,5 @@
 <template>
-  <div  data-theme="cupcake">
+  <div data-theme="TWF">
     <NuxtPage />
   </div>
 </template>
