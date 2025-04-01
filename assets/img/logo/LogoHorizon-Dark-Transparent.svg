@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1081 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-3697,-2828)">
+        <g id="LogoHorizon-Dark-Transparent" transform="matrix(0.947302,0,0,0.26162,3697.72,2828.33)">
+            <rect x="0" y="0" width="1140.08" height="1140.08" style="fill:none;"/>
+            <g id="Courbe" transform="matrix(0.490385,0,0,1.77564,28.6622,-256.178)">
+                <path d="M321.905,392.359L265.195,392.359L265.195,583.44L211.194,583.44L211.194,392.359L154.303,392.359L154.303,345.04L321.905,345.04L321.905,345.121L459.708,345.121L459.708,392.44L375.907,392.44L375.907,440.481L453.387,440.481L453.387,487.619L375.907,487.619L375.907,583.521L321.905,583.521L321.905,392.359Z" style="fill:rgb(242,237,235);"/>
+                <g transform="matrix(1.05563,0,0,1.05563,0,0)">
+                    <path d="M101.339,304.493C181.495,369.445 180.004,445.481 178.793,536.735C197.028,467.506 236.876,373.911 292.532,374.871C347.547,375.82 361.636,443.47 377.244,536.518C400.278,475.381 414.296,414.11 499.594,414.11" style="fill:none;stroke:rgb(235,69,17);stroke-width:32.22px;"/>
+                </g>
+                <g transform="matrix(1.05563,0,0,1.05563,-529.942,-297.502)">
+                    <path d="M648.852,608.607L806.956,608.607L806.956,608.683L937.496,608.683L937.496,653.509L858.111,653.509L858.111,679.947C857.873,679.544 857.633,679.146 857.392,678.75C844.875,658.206 828.646,645.339 806.956,641.621C803.088,640.959 799.048,640.587 794.823,640.514C780.375,640.265 766.58,644.912 753.752,653.432L753.234,653.432L753.234,834.444L702.078,834.444L702.078,653.432L676.365,653.432C669.573,637.982 660.623,623.054 648.852,608.607ZM867.438,699.018L931.508,699.018L931.508,742.118C931.099,742.631 930.695,743.149 930.295,743.672L881.205,743.672C877.199,726.981 872.731,711.968 867.438,699.018ZM858.111,790.507L858.111,834.52L806.956,834.52L806.956,674.938C820.518,679.776 829.537,692.227 836.885,709.281C846.047,730.545 852.292,758.385 858.111,790.507Z" style="fill:rgb(242,237,235);"/>
+                </g>
+            </g>
+            <g transform="matrix(0.544705,0,0,1.97233,-543.083,-969.278)">
+                <text x="1580.61px" y="780.458px" style="font-family:'LeagueSpartan-ExtraBold', 'League Spartan';font-weight:800;font-size:150px;fill:rgb(242,237,235);">T<tspan x="1646.01px " y="780.458px ">o</tspan>morr<tspan x="2049.96px " y="780.458px ">o</tspan></text>
+                <text x="2128.26px" y="780.458px" style="font-family:'LeagueSpartan-ExtraBold', 'League Spartan';font-weight:800;font-size:150px;fill:rgb(235,69,17);">W</text>
+                <g transform="matrix(150,0,0,150,2948.54,780.458)">
+                </g>
+                <text x="2270.84px" y="780.458px" style="font-family:'LeagueSpartan-ExtraBold', 'League Spartan';font-weight:800;font-size:150px;fill:rgb(242,237,235);">’s F<tspan x="2484.36px " y="780.458px ">o</tspan>otball</text>
+            </g>
+            <g transform="matrix(0.544705,0,0,1.97233,-545.034,-793.561)">
+                <g transform="matrix(83.3333,0,0,83.3333,2295.86,780.458)">
+                </g>
+                <text x="1580.61px" y="780.458px" style="font-family:'LeagueSpartan-Medium', 'League Spartan';font-weight:500;font-size:83.333px;fill:rgb(242,237,235);">Be par<tspan x="1808.65px " y="780.458px ">t</tspan> o<tspan x="1900.07px " y="780.458px ">f</tspan> the fu<tspan x="2154.11px " y="780.458px ">t</tspan>ur<tspan x="2255.66px " y="780.458px ">e</tspan></text>
+            </g>
+        </g>
+    </g>
+</svg>

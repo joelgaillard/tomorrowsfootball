@@ -10,11 +10,11 @@
 </script>
 
 <template>
-	<div class="navbar bg-base-100 shadow-sm">
+	<div class="navbar flex-row items-center bg-base-200 shadow-sm sticky top-0 z-50">
 		<div class="flex-1">
-			<nuxt-link to="/" class="btn btn-ghost text-xl">Logo</nuxt-link>
+			<nuxt-link to="/"><img src="/assets/img/logo/LogoHorizon-Dark-Transparent.svg" alt="Logo" class="w-64 h-auto"></nuxt-link>
 		</div>
-		<div class="flex-none">
+		<div class="flex items-center">
 			<div class="dropdown dropdown-end">
 				<label tabindex="0" class="btn btn-ghost lg:hidden">
 					<p class="material-symbols-rounded">menu</p>
@@ -27,7 +27,7 @@
 					</template>
 				</ul>
 			</div>
-			<ul class="menu menu-horizontal hidden lg:flex px-1">
+			<ul class="menu menu-horizontal items-center hidden h-full lg:flex px-1">
 				<template v-for="(item, index) in navItems" :key="index">
 					<li>
 						<nuxt-link :to="item.to" class="btn btn-ghost" active-class="font-black">{{ item.label }}</nuxt-link>
