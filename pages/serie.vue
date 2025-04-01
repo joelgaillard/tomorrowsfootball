@@ -4,7 +4,7 @@
         <p>This is the Serie page.</p>
         <p class="btn btn-primary">Boo</p>
         <BaseCard title="test" />
-        <img src="images/e.png"/>
+        <img src="/images/e.png"/>
 
     </div>
 </template>
