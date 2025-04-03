@@ -1,4 +1,5 @@
 <script setup>
+
 const router = useRouter();
 
 const props = defineProps({
@@ -25,25 +26,25 @@ const props = defineProps({
 });
 
 const goToEvent = () => {
-  router.push(`/events/${props.id}`);
+  router.push('/events/' + props.id);
 };
 
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-sm w-full">
-    <figure>
-      <img :src="image_url" :alt="title" />
-    </figure>
-    <div class="card-body">
+  <div class="flex flex-col card bg-base-100 shadow-sm w-full gap-8 h-full">
+    <div>
+      <img :src="image_url" :alt="title" class="w-full h-60 object-right-top object-cover rounded-2xl" />
+    </div>
+    <div class="flex flex-col flex-grow">
       <div class="flex flex-row gap-5">
-        <div> {{ date }}</div>
-        <div> {{ place }}</div>
+        <div>{{ date }}</div>
+        <div>{{ place }}</div>
       </div>
       <h2 class="text-4xl">{{ title }}</h2>
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary" @click="goToEvent">Learn more</button>
-      </div>
+    </div>
+    <div class="flex justify-end" >
+      <button class="btn btn-primary w-auto self-end" @click="goToEvent">Learn more</button>
     </div>
   </div>
 </template>
