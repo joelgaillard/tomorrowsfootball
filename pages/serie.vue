@@ -75,9 +75,12 @@
 		selectedItem.value = { ...item, category: currentCategory.value };
 
 		// Scroll to the first section
-		const firstSection = document.querySelector(".flex.flex-col.items-start.gap-24.p-4.mt-16");
-		if (firstSection) {
-			firstSection.scrollIntoView({ behavior: "smooth" });
+		const player = document.querySelector(".player");
+		if (player) {
+			window.scrollTo({
+				top: player.offsetTop - 120,
+				behavior: "smooth",
+			});
 		}
 	};
 
@@ -141,7 +144,7 @@
 	<div class="flex flex-col items-start gap-24 p-4 mt-16">
 		<div class="flex flex-col items-start gap-16 w-full">
 			<h1 class="text-7xl font-bold">Coach like a woman</h1>
-			<div class="flex flex-col items-center md:flex-row gap-4 w-full">
+			<div class="player flex flex-col items-center md:flex-row gap-4 w-full">
 				<figure class="rounded-box relative md:w-1/2">
 					<img :src="selectedItem.imageSrc" alt="Selected Item" class="rounded-box opacity-70" />
 					<p class="material-symbols-rounded">
