@@ -26,8 +26,5 @@ export default defineNuxtConfig({
 		},
 	},
 	css: ["~/assets/app.css"],
-	modules: ["@nuxt/eslint", "@nuxt/image", "@nuxt/ui", "@nuxt/icon"],
-	nitro: {
-		preset: "netlify",
-	},
+	modules: ["@nuxt/eslint", "@nuxt/image", "@nuxt/ui", "@nuxt/icon"]
 });
