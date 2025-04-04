@@ -10,9 +10,11 @@
 </script>
 
 <template>
-	<div class="navbar flex-row items-center bg-base-200 shadow-sm sticky top-0 z-50">
-		<div class="flex-1">
-			<nuxt-link to="/"><img src="/assets/img/logo/LogoHorizon-Dark-Transparent.svg" alt="Logo" class="w-64 h-auto"></nuxt-link>
+	<div class="navbar flex-row items-center justify-between bg-base-200 shadow-sm sticky top-0 z-50">
+		<div>
+			<nuxt-link to="/"
+				><img src="/assets/img/logo/LogoHorizon-Dark-Transparent.svg" alt="Logo" class="w-64 h-auto"
+			/></nuxt-link>
 		</div>
 		<div class="flex items-center">
 			<div class="dropdown dropdown-end">
@@ -22,7 +24,12 @@
 				<ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 					<template v-for="(item, index) in navItems" :key="index">
 						<li>
-							<nuxt-link :to="item.to" active-class="font-black">{{ item.label }}</nuxt-link>
+							<nuxt-link
+								:to="item.to"
+								class="btn btn-ghost relative"
+								active-class="font-extrabold after:content-[] after:absolute after:-bottom-3 after:left-1/2 after:-translate-1/2 after:w-10 after:h-5 after:bg-[url(/assets/img/underlines/UnderLine-Orange.svg)] after:bg-contain after:bg-no-repeat">
+								{{ item.label }}
+							</nuxt-link>
 						</li>
 					</template>
 				</ul>
@@ -30,12 +37,15 @@
 			<ul class="menu menu-horizontal items-center hidden h-full lg:flex px-1">
 				<template v-for="(item, index) in navItems" :key="index">
 					<li>
-						<nuxt-link :to="item.to" class="btn btn-ghost" active-class="font-black">{{ item.label }}</nuxt-link>
+						<nuxt-link
+							:to="item.to"
+							class="btn btn-ghost relative"
+							active-class="font-extrabold after:content-[] after:absolute after:-bottom-3 after:left-1/2 after:-translate-1/2 after:w-10 after:h-5 after:bg-[url(/assets/img/underlines/UnderLine-Orange.svg)] after:bg-contain after:bg-no-repeat">
+							{{ item.label }}
+						</nuxt-link>
 					</li>
 				</template>
 			</ul>
 		</div>
 	</div>
 </template>
-
-<style></style>

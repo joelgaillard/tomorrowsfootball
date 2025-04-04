@@ -3,12 +3,13 @@
         <h1 class="text-7xl font-bold ">Events</h1>
 
         <!-- Section next event -->
-        <div class="flex flex-col gap-8">
+        <div v-if="nextEvent" class="flex flex-col gap-8">
             <h2 class="text-6xl font-bold ">Next event</h2>
-            <div class="flex flex-col lg:flex-row gap-5">
+
+            <div class="flex flex-col gap-5 md:flex-row">
                 <img :src="nextEvent.image_url" :alt="nextEvent.title"
-                    class="rounded-2xl w-full md:h-96 w-1/2 object-top object-cover" />
-                <div class="flex flex-col gap-12">
+                    class="rounded-2xl md:h-96  object-top object-cover md:w-1/2" />
+                <div class="flex flex-col gap-12 md:w-1/2">
                     <div class="flex flex-col gap-4">
                         <div class="text-4xl font-bold">{{ nextEvent.title }}</div>
                         <div class="text-3xl font-bold">{{ formatDate(nextEvent.date) }} - {{ nextEvent.place }}</div>
@@ -20,10 +21,11 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- Section other events -->
-        <div class="flex flex-col gap-8">
+        <div v-if="otherEvents" class="flex flex-col gap-8">
             <div class="flex flex-col flex-wrap justify-between md:items-center flex-row">
                 <h2 class="text-6xl font-bold ">Other events</h2>
                 <details class="dropdown w-full md:w-auto items-center">
@@ -57,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-const { data: allEvents } = await useFetch('/api/events');
+const { data: allEvents } = await useAsyncData('allEvents', () => $fetch('/api/events'));
 
 const nextEventId = allEvents.value?.[0]?.id; // Récupère l'ID du premier event
 

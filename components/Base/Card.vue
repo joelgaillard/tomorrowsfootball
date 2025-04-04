@@ -20,10 +20,10 @@
 </script>
 
 <template>
-	<div class="card bg-base-100 w-full max-w-96 shadow-sm">
+	<div class="card bg-base-100 w-full shadow-sm" :class="{ 'bg-base-200': active, 'cursor-pointer': !active }">
 		<figure class="rounded-box relative">
 			<img :src="imageSrc" alt="Shoes" class="rounded-box opacity-70" />
-			<p class="material-symbols-rounded">
+			<p v-if="!active" class="material-symbols-rounded">
 				<span class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-7xl"
 					>play_circle</span
 				>
