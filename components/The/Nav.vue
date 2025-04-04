@@ -10,8 +10,8 @@
 </script>
 
 <template>
-	<div class="navbar flex-row items-center bg-base-200 shadow-sm sticky top-0 z-50">
-		<div class="flex-1">
+	<div class="navbar flex-row items-center justify-between bg-base-200 shadow-sm sticky top-0 z-50">
+		<div>
 			<nuxt-link to="/"><img src="/assets/img/logo/LogoHorizon-Dark-Transparent.svg" alt="Logo" class="w-64 h-auto"></nuxt-link>
 		</div>
 		<div class="flex items-center">

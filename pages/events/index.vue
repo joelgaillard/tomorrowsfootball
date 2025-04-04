@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-16 py-32 px-8">
+    <div class="flex flex-col items-start gap-24 p-4 mt-16">
         <h1 class="text-7xl font-bold ">Events</h1>
 
         <!-- Section next event -->
