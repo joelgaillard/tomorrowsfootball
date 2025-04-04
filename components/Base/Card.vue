@@ -20,7 +20,7 @@
 </script>
 
 <template>
-	<div class="card bg-base-100 w-full shadow-sm">
+	<div class="card bg-base-100 w-full shadow-sm" :class="{ 'bg-base-200': active, 'cursor-pointer': !active }">
 		<figure class="rounded-box relative">
 			<img :src="imageSrc" alt="Shoes" class="rounded-box opacity-70" />
 			<p v-if="!active" class="material-symbols-rounded">
