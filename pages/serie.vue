@@ -81,6 +81,53 @@
 		}
 	};
 
+	const hasMatchingItem = computed(() => {
+		const otherCategory = currentCategory.value === "serie" ? interviews.value : serie.value;
+		return otherCategory.some(
+			(item) => item.season === selectedItem.value.season && item.episode === selectedItem.value.episode
+		);
+	});
+
+	const selectMatchingItem = () => {
+		const otherCategory = currentCategory.value === "serie" ? interviews.value : serie.value;
+		const matchingItem = otherCategory.find(
+			(item) => item.season === selectedItem.value.season && item.episode === selectedItem.value.episode
+		);
+
+		if (matchingItem) {
+			// Switch to the other category
+			currentCategory.value = currentCategory.value === "serie" ? "interviews" : "serie";
+			// Select the matching item
+			selectItem(matchingItem);
+		}
+	};
+
+	const goToNextItem = () => {
+		const allItems = currentCategory.value === "serie" ? serie.value : interviews.value;
+		const currentIndex = allItems.findIndex((item) => item.id === selectedItem.value.id);
+
+		if (currentIndex < allItems.length - 1) {
+			const nextItem = allItems[currentIndex + 1];
+			if (nextItem.season !== selectedItem.value.season) {
+				currentSeason.value = nextItem.season;
+			}
+			selectItem(nextItem);
+		}
+	};
+
+	const goToPreviousItem = () => {
+		const allItems = currentCategory.value === "serie" ? serie.value : interviews.value;
+		const currentIndex = allItems.findIndex((item) => item.id === selectedItem.value.id);
+
+		if (currentIndex > 0) {
+			const previousItem = allItems[currentIndex - 1];
+			if (previousItem.season !== selectedItem.value.season) {
+				currentSeason.value = previousItem.season;
+			}
+			selectItem(previousItem);
+		}
+	};
+
 	const getDynamicTitle = (item) => {
 		return `S${item.season.toString().padStart(2, "0")} E${item.episode.toString().padStart(2, "0")} - ${item.title}`;
 	};
@@ -107,12 +154,32 @@
 					<p class="text-sm text-gray-500">{{ selectedItem.category }}</p>
 					<h2 class="text-4xl font-bold">{{ getDynamicTitle(selectedItem) }}</h2>
 					<p>{{ selectedItem.description }}</p>
-					<p class="link link-primary">
+					<p v-if="hasMatchingItem" class="link link-primary" @click.prevent="selectMatchingItem">
 						{{ selectedItem.category === "serie" ? "View full interview" : "View related episode" }}
 					</p>
 					<div class="flex flex-row gap-4 my-4">
-						<p class="btn btn-primary btn-outline">Previous</p>
-						<p class="btn btn-primary">Next</p>
+						<p
+							class="btn btn-primary btn-outline"
+							@click="goToPreviousItem"
+							:class="{
+								'btn-disabled':
+									currentCategory === 'serie'
+										? serie[0].id === selectedItem.id
+										: interviews[0].id === selectedItem.id,
+							}">
+							Previous
+						</p>
+						<p
+							class="btn btn-primary"
+							@click="goToNextItem"
+							:class="{
+								'btn-disabled':
+									currentCategory === 'serie'
+										? serie[serie.length - 1].id === selectedItem.id
+										: interviews[interviews.length - 1].id === selectedItem.id,
+							}">
+							Next
+						</p>
 					</div>
 				</div>
 			</div>
