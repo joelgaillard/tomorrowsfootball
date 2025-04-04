@@ -9,7 +9,7 @@
 			time: "12",
 			active: true,
 			description:
-				"As the club will close because of lacking of a coach we follow Emily the big sister of a player who the life will be change for the better.",
+				"Sarah's coach moves away, leaving her devastated. Her sister Émilie, a former player, hesitates to step in.", 
 		},
 		{
 			id: 2,
