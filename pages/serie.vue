@@ -1,78 +1,101 @@
 <script setup>
-	const serie = ref([
-		{
-			id: 1,
-			season: 1,
-			episode: 1,
-			title: "New start",
-			imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-			time: "12",
-			active: true,
-			description:
-				"Sarah's coach moves away, leaving her devastated. Her sister Émilie, a former player, hesitates to step in.", 
-		},
-		{
-			id: 2,
-			season: 1,
-			episode: 2,
-			title: "The first game",
-			imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-			time: "15",
-			active: false,
-			description: "The team plays their first game under Emily's coaching, facing challenges and surprises.",
-		},
-		{
-			id: 3,
-			season: 2,
-			episode: 1,
-			title: "A new challenge",
-			imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-			time: "10",
-			active: false,
-			description: "Emily faces a new challenge as the team prepares for a big tournament.",
-		},
-	]);
-	const interviews = ref([
-		{
-			id: 1,
-			season: 1,
-			episode: 1,
-			title: "Interview with the coach",
-			imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-			time: "12",
-			active: false,
-			description: "An in-depth interview with Emily about her journey as a coach.",
-		},
-		{
-			id: 2,
-			season: 1,
-			episode: 2,
-			title: "Players' perspectives",
-			imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-			time: "15",
-			active: false,
-			description: "The players share their experiences and thoughts about the new coach.",
-		},
-	]);
+	const data = ref({
+		serie: [
+			{
+				season: 1,
+				description: "sda",
+				episodes: [
+					{
+						episode: 1,
+						title: "New start",
+						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+						time: "12",
+						active: true,
+						description:
+							"Sarah's coach moves away, leaving her devastated. Her sister Émilie, a former player, hesitates to step in.",
+					},
+					{
+						episode: 2,
+						title: "The first game",
+						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+						time: "15",
+						active: false,
+						description:
+							"The team plays their first game under Emily's coaching, facing challenges and surprises.",
+					},
+				],
+			},
+			{
+				season: 2,
+				description: "ouai",
+				episodes: [
+					{
+						episode: 1,
+						title: "A new challenge",
+						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+						time: "10",
+						active: false,
+						description: "Emily faces a new challenge as the team prepares for a big tournament.",
+					},
+				],
+			},
+		],
+		interviews: [
+			{
+				season: 1,
+				description: "sda",
+				episodes: [
+					{
+						episode: 1,
+						title: "Interview with the coach",
+						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+						time: "12",
+						active: false,
+						description: "An in-depth interview with Emily about her journey as a coach.",
+					},
+					{
+						episode: 2,
+						title: "Players' perspectives",
+						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+						time: "15",
+						active: false,
+						description: "The players share their experiences and thoughts about the new coach.",
+					},
+				],
+			},
+		],
+	});
 
 	const currentCategory = ref("serie");
 	const currentSeason = ref(1);
 
 	const items = computed(() => {
-		const categoryItems = currentCategory.value === "serie" ? serie.value : interviews.value;
-		return categoryItems.filter((item) => item.season === currentSeason.value);
+		const categoryItems = currentCategory.value === "serie" ? data.value.serie : data.value.interviews;
+		return categoryItems.find((season) => season.season === currentSeason.value)?.episodes || [];
 	});
 
-	const selectedItem = ref({ ...items.value[0], category: currentCategory.value });
+	const selectedItem = ref({
+		...items.value[0],
+		category: currentCategory.value,
+		season: currentSeason.value,
+	});
 
 	const selectItem = (item) => {
 		// Reset all items in both categories
-		serie.value.forEach((i) => (i.active = false));
-		interviews.value.forEach((i) => (i.active = false));
+		data.value.serie.forEach((season) => {
+			season.episodes.forEach((episode) => {
+				episode.active = false;
+			});
+		});
+		data.value.interviews.forEach((season) => {
+			season.episodes.forEach((episode) => {
+				episode.active = false;
+			});
+		});
 		// Set the clicked item's active property to true
 		item.active = true;
 		// Update the selected item
-		selectedItem.value = { ...item, category: currentCategory.value };
+		selectedItem.value = { ...item, category: currentCategory.value, season: currentSeason.value };
 
 		// Scroll to the first section
 		const player = document.querySelector(".player");
@@ -85,49 +108,26 @@
 	};
 
 	const hasMatchingItem = computed(() => {
-		const otherCategory = currentCategory.value === "serie" ? interviews.value : serie.value;
+		const otherCategory = selectedItem.value.category === "serie" ? data.value.interviews : data.value.serie;
 		return otherCategory.some(
-			(item) => item.season === selectedItem.value.season && item.episode === selectedItem.value.episode
+			(season) =>
+				season.season === selectedItem.value.season &&
+				season.episodes.some((ep) => ep.episode === selectedItem.value.episode)
 		);
 	});
 
 	const selectMatchingItem = () => {
-		const otherCategory = currentCategory.value === "serie" ? interviews.value : serie.value;
-		const matchingItem = otherCategory.find(
-			(item) => item.season === selectedItem.value.season && item.episode === selectedItem.value.episode
-		);
+		const otherCategory = selectedItem.value.category === "serie" ? data.value.interviews : data.value.serie;
+		const matchingSeason = otherCategory.find((season) => season.season === selectedItem.value.season);
+		const matchingItem = matchingSeason?.episodes.find((ep) => ep.episode === selectedItem.value.episode);
 
 		if (matchingItem) {
 			// Switch to the other category
-			currentCategory.value = currentCategory.value === "serie" ? "interviews" : "serie";
+			currentCategory.value = selectedItem.value.category === "serie" ? "interviews" : "serie";
+			// Update the current season
+			currentSeason.value = selectedItem.value.season;
 			// Select the matching item
 			selectItem(matchingItem);
-		}
-	};
-
-	const goToNextItem = () => {
-		const allItems = currentCategory.value === "serie" ? serie.value : interviews.value;
-		const currentIndex = allItems.findIndex((item) => item.id === selectedItem.value.id);
-
-		if (currentIndex < allItems.length - 1) {
-			const nextItem = allItems[currentIndex + 1];
-			if (nextItem.season !== selectedItem.value.season) {
-				currentSeason.value = nextItem.season;
-			}
-			selectItem(nextItem);
-		}
-	};
-
-	const goToPreviousItem = () => {
-		const allItems = currentCategory.value === "serie" ? serie.value : interviews.value;
-		const currentIndex = allItems.findIndex((item) => item.id === selectedItem.value.id);
-
-		if (currentIndex > 0) {
-			const previousItem = allItems[currentIndex - 1];
-			if (previousItem.season !== selectedItem.value.season) {
-				currentSeason.value = previousItem.season;
-			}
-			selectItem(previousItem);
 		}
 	};
 
@@ -135,8 +135,96 @@
 		return `S${item.season.toString().padStart(2, "0")} E${item.episode.toString().padStart(2, "0")} - ${item.title}`;
 	};
 
+	const changeEpisode = (direction) => {
+		if (!selectedItem.value || !items.value) return;
+
+		if (currentCategory.value !== selectedItem.value.category) {
+			currentCategory.value = selectedItem.value.category;
+		}
+		if (currentSeason.value !== selectedItem.value.season) {
+			currentSeason.value = selectedItem.value.season;
+		}
+		const currentItems = items.value;
+		const currentIndex = currentItems.findIndex((item) => item.episode === selectedItem.value.episode);
+		if (currentIndex === -1) return;
+
+		let newIndex = currentIndex;
+
+		if (direction === "next") {
+			if (currentIndex === currentItems.length - 1) {
+				// Check if there is a next season
+				const nextSeason = (
+					selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews
+				).find((season) => season.season === selectedItem.value.season + 1);
+				if (nextSeason && nextSeason.episodes.length > 0) {
+					currentSeason.value += 1;
+					if (currentCategory.value !== selectedItem.value.category) {
+						currentCategory.value = selectedItem.value.category;
+					}
+					selectItem(nextSeason.episodes[0]);
+					return;
+				}
+			} else {
+				newIndex = (currentIndex + 1) % currentItems.length;
+			}
+		} else if (direction === "prev") {
+			if (currentIndex === 0) {
+				// Check if there is a previous season
+				const prevSeason = (
+					selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews
+				).find((season) => season.season === selectedItem.value.season - 1);
+				if (prevSeason && prevSeason.episodes.length > 0) {
+					currentSeason.value -= 1;
+					if (currentCategory.value !== selectedItem.value.category) {
+						currentCategory.value = selectedItem.value.category;
+					}
+					selectItem(prevSeason.episodes[prevSeason.episodes.length - 1]);
+					return;
+				}
+			} else {
+				newIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+			}
+		}
+
+		selectItem(currentItems[newIndex]);
+	};
+
+	const isPrevDisabled = computed(() => {
+		const currentCategoryItems = selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews;
+		const currentSeasonItems = currentCategoryItems.find((season) => season.season === selectedItem.value.season);
+		const currentItems = currentSeasonItems?.episodes || [];
+		const currentIndex = currentItems.findIndex((item) => item.episode === selectedItem.value.episode);
+		if (currentIndex === 0) {
+			// Check if there is a previous season
+			return !currentCategoryItems.some((season) => season.season === selectedItem.value.season - 1);
+		}
+		return false;
+	});
+
+	const isNextDisabled = computed(() => {
+		const currentCategoryItems = selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews;
+		const currentSeasonItems = currentCategoryItems.find((season) => season.season === selectedItem.value.season);
+		const currentItems = currentSeasonItems?.episodes || [];
+		const currentIndex = currentItems.findIndex((item) => item.episode === selectedItem.value.episode);
+		if (currentIndex === currentItems.length - 1) {
+			// Check if there is a next season
+			return !currentCategoryItems.some((season) => season.season === selectedItem.value.season + 1);
+		}
+		return false;
+	});
+
 	watch(currentCategory, () => {
-		currentSeason.value = 1;
+		const categoryItems = currentCategory.value === "serie" ? data.value.serie : data.value.interviews;
+		if (!categoryItems.some((season) => season.season === currentSeason.value)) {
+			currentSeason.value = 1;
+		}
+	});
+
+	watch(currentSeason, () => {
+		const categoryItems = currentCategory.value === "serie" ? data.value.serie : data.value.interviews;
+		if (!categoryItems.some((season) => season.season === currentSeason.value)) {
+			currentSeason.value = categoryItems[0]?.season || 1;
+		}
 	});
 </script>
 
@@ -163,24 +251,14 @@
 					<div class="flex flex-row gap-4 my-4">
 						<p
 							class="btn btn-primary btn-outline"
-							@click="goToPreviousItem"
-							:class="{
-								'btn-disabled':
-									currentCategory === 'serie'
-										? serie[0].id === selectedItem.id
-										: interviews[0].id === selectedItem.id,
-							}">
+							:class="{ 'btn-disabled': isPrevDisabled }"
+							@click="!isPrevDisabled && changeEpisode('prev')">
 							Previous
 						</p>
 						<p
 							class="btn btn-primary"
-							@click="goToNextItem"
-							:class="{
-								'btn-disabled':
-									currentCategory === 'serie'
-										? serie[serie.length - 1].id === selectedItem.id
-										: interviews[interviews.length - 1].id === selectedItem.id,
-							}">
+							:class="{ 'btn-disabled': isNextDisabled }"
+							@click="!isNextDisabled && changeEpisode('next')">
 							Next
 						</p>
 					</div>
@@ -208,22 +286,23 @@
 						Season {{ currentSeason }} <span class="material-symbols-rounded">arrow_drop_down</span>
 					</div>
 					<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-						<li
-							v-for="season in [
-								...new Set((currentCategory === 'serie' ? serie : interviews).map((item) => item.season)),
-							]"
-							:key="season">
-							<a href="#" class="flex flex-row items-center gap-2" @click.prevent="currentSeason = season">
-								<span class="material-symbols-rounded" :class="{ 'text-primary': currentSeason === season }"
+						<li v-for="season in currentCategory === 'serie' ? data.serie : data.interviews" :key="season.season">
+							<a
+								href="#"
+								class="flex flex-row items-center gap-2"
+								@click.prevent="currentSeason = season.season">
+								<span
+									class="material-symbols-rounded"
+									:class="{ 'text-primary': currentSeason === season.season }"
 									>check_circle</span
 								>
-								<span>Season {{ season }}</span>
+								<span>Season {{ season.season }}</span>
 							</a>
 						</li>
 					</ul>
 				</div>
 				<div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
-					<template v-for="item in items" :key="item.id">
+					<template v-for="item in items" :key="item.episode">
 						<div class="flex flex-col items-start gap-4" @click="!item.active && selectItem(item)">
 							<BaseCard :title="item.title" :imageSrc="item.imageSrc" :time="item.time" :active="item.active" />
 						</div>
