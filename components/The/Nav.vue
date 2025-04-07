@@ -4,7 +4,7 @@
 	const navItems = ref([
 		{ to: "/serie", label: "Serie" },
 		{ to: "/become-a-coach", label: "Become a coach" },
-		{ to: "/quests", label: "Quests" },
+		{ to: "/giveaway", label: "Giveaway" },
 		{ to: "/events", label: "Events" },
 	]);
 </script>
