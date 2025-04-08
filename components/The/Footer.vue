@@ -6,7 +6,7 @@
 <template>
 	<div class="bg-base-200 text-xl px-10">
 		<div class="divider"></div>
-		<div class="flex justify-around pt-8 pb-10">
+		<div class="flex flex-col gap-6 md:flex-row justify-around pt-8 pb-20">
 			<div class="flex flex-col items-center gap-1">
 				<a class="cursor-pointer">About us</a>
 				<a class="cursor-pointer">Contact us</a>
