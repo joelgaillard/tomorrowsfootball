@@ -1,70 +1,5 @@
 <script setup>
-	const data = ref({
-		serie: [
-			{
-				season: 1,
-				description: "sda",
-				episodes: [
-					{
-						episode: 1,
-						title: "New start",
-						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-						time: "12",
-						active: true,
-						description:
-							"Sarah's coach moves away, leaving her devastated. Her sister Émilie, a former player, hesitates to step in.",
-					},
-					{
-						episode: 2,
-						title: "The first game",
-						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-						time: "15",
-						active: false,
-						description:
-							"The team plays their first game under Emily's coaching, facing challenges and surprises.",
-					},
-				],
-			},
-			{
-				season: 2,
-				description: "ouai",
-				episodes: [
-					{
-						episode: 1,
-						title: "A new challenge",
-						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-						time: "10",
-						active: false,
-						description: "Emily faces a new challenge as the team prepares for a big tournament.",
-					},
-				],
-			},
-		],
-		interviews: [
-			{
-				season: 1,
-				description: "sda",
-				episodes: [
-					{
-						episode: 1,
-						title: "Interview with the coach",
-						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-						time: "12",
-						active: false,
-						description: "An in-depth interview with Emily about her journey as a coach.",
-					},
-					{
-						episode: 2,
-						title: "Players' perspectives",
-						imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-						time: "15",
-						active: false,
-						description: "The players share their experiences and thoughts about the new coach.",
-					},
-				],
-			},
-		],
-	});
+	const { data } = await useAsyncData("allData", () => $fetch("/api/serie"))
 
 	const currentCategory = ref("serie");
 	const currentSeason = ref(1);
@@ -304,7 +239,7 @@
 				<div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
 					<template v-for="item in items" :key="item.episode">
 						<div class="flex flex-col items-start gap-4" @click="!item.active && selectItem(item)">
-							<BaseCard :title="item.title" :imageSrc="item.imageSrc" :time="item.time" :active="item.active" />
+							<BaseCard :title="item.title" :imageSrc="item.imageSrc" :time="item.time" :active="item.active" :numEpisode="item.episode" />
 						</div>
 					</template>
 				</div>
