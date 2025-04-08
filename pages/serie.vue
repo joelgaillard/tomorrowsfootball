@@ -5,7 +5,14 @@
 	const currentSeason = ref(1);
 
 	const items = computed(() => {
-		const categoryItems = currentCategory.value === "serie" ? data.value.serie : data.value.interviews;
+		let categoryItems;
+		if (currentCategory.value === "serie") {
+			categoryItems = data.value.serie;
+		} else if (currentCategory.value === "interviews") {
+			categoryItems = data.value.interviews;
+		} else if (currentCategory.value === "exclu") {
+			categoryItems = data.value.exclu; // Handle "Exclu" category
+		}
 		return categoryItems.find((season) => season.season === currentSeason.value)?.episodes || [];
 	});
 
@@ -16,15 +23,12 @@
 	});
 
 	const selectItem = (item) => {
-		// Reset all items in both categories
-		data.value.serie.forEach((season) => {
-			season.episodes.forEach((episode) => {
-				episode.active = false;
-			});
-		});
-		data.value.interviews.forEach((season) => {
-			season.episodes.forEach((episode) => {
-				episode.active = false;
+		// Reset all items in all categories
+		[data.value.serie, data.value.interviews, data.value.exclu].forEach((category) => {
+			category.forEach((season) => {
+				season.episodes.forEach((episode) => {
+					episode.active = false;
+				});
 			});
 		});
 		// Set the clicked item's active property to true
@@ -43,7 +47,12 @@
 	};
 
 	const hasMatchingItem = computed(() => {
-		const otherCategory = selectedItem.value.category === "serie" ? data.value.interviews : data.value.serie;
+		const otherCategories = {
+			serie: data.value.interviews, // Exclude "exclu"
+			interviews: data.value.serie, // Exclude "exclu"
+			exclu: [], // No matching items for "exclu"
+		};
+		const otherCategory = otherCategories[selectedItem.value.category];
 		return otherCategory.some(
 			(season) =>
 				season.season === selectedItem.value.season &&
@@ -52,7 +61,12 @@
 	});
 
 	const selectMatchingItem = () => {
-		const otherCategory = selectedItem.value.category === "serie" ? data.value.interviews : data.value.serie;
+		const otherCategories = {
+			serie: data.value.interviews, // Exclude "exclu"
+			interviews: data.value.serie, // Exclude "exclu"
+			exclu: [], // No matching items for "exclu"
+		};
+		const otherCategory = otherCategories[selectedItem.value.category];
 		const matchingSeason = otherCategory.find((season) => season.season === selectedItem.value.season);
 		const matchingItem = matchingSeason?.episodes.find((ep) => ep.episode === selectedItem.value.episode);
 
@@ -89,7 +103,11 @@
 			if (currentIndex === currentItems.length - 1) {
 				// Check if there is a next season
 				const nextSeason = (
-					selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews
+					selectedItem.value.category === "serie"
+						? data.value.serie
+						: selectedItem.value.category === "interviews"
+						? data.value.interviews
+						: data.value.exclu
 				).find((season) => season.season === selectedItem.value.season + 1);
 				if (nextSeason && nextSeason.episodes.length > 0) {
 					currentSeason.value += 1;
@@ -106,7 +124,11 @@
 			if (currentIndex === 0) {
 				// Check if there is a previous season
 				const prevSeason = (
-					selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews
+					selectedItem.value.category === "serie"
+						? data.value.serie
+						: selectedItem.value.category === "interviews"
+						? data.value.interviews
+						: data.value.exclu
 				).find((season) => season.season === selectedItem.value.season - 1);
 				if (prevSeason && prevSeason.episodes.length > 0) {
 					currentSeason.value -= 1;
@@ -125,7 +147,12 @@
 	};
 
 	const isPrevDisabled = computed(() => {
-		const currentCategoryItems = selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews;
+		const currentCategoryItems =
+			selectedItem.value.category === "serie"
+				? data.value.serie
+				: selectedItem.value.category === "interviews"
+				? data.value.interviews
+				: data.value.exclu;
 		const currentSeasonItems = currentCategoryItems.find((season) => season.season === selectedItem.value.season);
 		const currentItems = currentSeasonItems?.episodes || [];
 		const currentIndex = currentItems.findIndex((item) => item.episode === selectedItem.value.episode);
@@ -137,7 +164,12 @@
 	});
 
 	const isNextDisabled = computed(() => {
-		const currentCategoryItems = selectedItem.value.category === "serie" ? data.value.serie : data.value.interviews;
+		const currentCategoryItems =
+			selectedItem.value.category === "serie"
+				? data.value.serie
+				: selectedItem.value.category === "interviews"
+				? data.value.interviews
+				: data.value.exclu;
 		const currentSeasonItems = currentCategoryItems.find((season) => season.season === selectedItem.value.season);
 		const currentItems = currentSeasonItems?.episodes || [];
 		const currentIndex = currentItems.findIndex((item) => item.episode === selectedItem.value.episode);
@@ -149,14 +181,24 @@
 	});
 
 	watch(currentCategory, () => {
-		const categoryItems = currentCategory.value === "serie" ? data.value.serie : data.value.interviews;
+		const categoryItems =
+			currentCategory.value === "serie"
+				? data.value.serie
+				: currentCategory.value === "interviews"
+				? data.value.interviews
+				: data.value.exclu;
 		if (!categoryItems.some((season) => season.season === currentSeason.value)) {
 			currentSeason.value = 1;
 		}
 	});
 
 	watch(currentSeason, () => {
-		const categoryItems = currentCategory.value === "serie" ? data.value.serie : data.value.interviews;
+		const categoryItems =
+			currentCategory.value === "serie"
+				? data.value.serie
+				: currentCategory.value === "interviews"
+				? data.value.interviews
+				: data.value.exclu;
 		if (!categoryItems.some((season) => season.season === currentSeason.value)) {
 			currentSeason.value = categoryItems[0]?.season || 1;
 		}
@@ -216,8 +258,8 @@
 				</h3>
 				<h3
 					class="text-6xl cursor-pointer flex items-center gap-2"
-					:class="{ 'font-bold': currentCategory === 'Exclu' }"
-					@click="currentCategory = 'Exclu'">
+					:class="{ 'font-bold': currentCategory === 'exclu' }"
+					@click="currentCategory = 'exclu'">
 					Exclu
 					<span class="material-symbols-rounded"> lock </span>
 				</h3>
@@ -230,7 +272,11 @@
 						</div>
 						<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 							<li
-								v-for="season in currentCategory === 'serie' ? data.serie : data.interviews"
+								v-for="season in currentCategory === 'serie'
+									? data.serie
+									: currentCategory === 'interviews'
+									? data.interviews
+									: data.exclu"
 								:key="season.season">
 								<a
 									href="#"
@@ -250,7 +296,9 @@
 						{{
 							currentCategory === "serie"
 								? data.serie.find((season) => season.season === currentSeason)?.description
-								: data.interviews.find((season) => season.season === currentSeason)?.description
+								: currentCategory === "interviews"
+								? data.interviews.find((season) => season.season === currentSeason)?.description
+								: data.exclu.find((season) => season.season === currentSeason)?.description
 						}}
 					</p>
 				</div>
