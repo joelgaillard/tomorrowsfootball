@@ -4,6 +4,17 @@
 	const currentCategory = ref("serie");
 	const currentSeason = ref(1);
 
+	const excluCodes = ref({}); // Store entered codes for each season
+
+	const isExcluSeasonLocked = computed(() => {
+		const excluSeason = data.value.exclu.find((season) => season.season === currentSeason.value);
+		return excluSeason?.code && excluSeason.code !== excluCodes.value[currentSeason.value];
+	});
+
+	const unlockExcluSeason = (code) => {
+		excluCodes.value[currentSeason.value] = code; // Update the entered code for the current season
+	};
+
 	const items = computed(() => {
 		let categoryItems;
 		if (currentCategory.value === "serie") {
@@ -23,6 +34,10 @@
 	});
 
 	const selectItem = (item) => {
+		if (currentCategory.value === "exclu" && isExcluSeasonLocked.value) {
+			alert("This season is locked. Please enter the correct code to unlock.");
+			return;
+		}
 		// Reset all items in all categories
 		[data.value.serie, data.value.interviews, data.value.exclu].forEach((category) => {
 			category.forEach((season) => {
@@ -261,7 +276,7 @@
 					:class="{ 'font-bold': currentCategory === 'exclu' }"
 					@click="currentCategory = 'exclu'">
 					Exclu
-					<span class="material-symbols-rounded"> lock </span>
+					<span class="material-symbols-rounded">{{ isExcluSeasonLocked ? "lock" : "lock_open" }} </span>
 				</h3>
 			</div>
 			<div class="flex flex-col items-start gap-12 w-full">
@@ -302,7 +317,18 @@
 						}}
 					</p>
 				</div>
-				<div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+				<div v-if="currentCategory === 'exclu' && isExcluSeasonLocked" class="text-center text-gray-500 mt-8">
+					<p>This season is locked. Please enter the code to unlock:</p>
+					<input
+						type="text"
+						class="input input-bordered mt-4"
+						placeholder="Enter code"
+						v-model="excluCodes[currentSeason]"
+						@input="unlockExcluSeason(excluCodes[currentSeason])" />
+				</div>
+				<div
+					v-if="!(currentCategory === 'exclu' && isExcluSeasonLocked)"
+					class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
 					<template v-for="item in items" :key="item.episode">
 						<div class="flex flex-col items-start gap-4" @click="!item.active && selectItem(item)">
 							<BaseCard

@@ -132,23 +132,38 @@ export const data = {
 			],
 		},
 	],
-    exclu: [
-        {
-            season: 1,
-            description:
-                "Here are the exclusive content featured in the animated series. The exclusive content is a great way to learn more about the coaches and their experiences.",
-            code: "1023",
-            episodes: [
-                {
-                    episode: 1,
-                    title: "Exclusive content",
-                    imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-                    time: "12",
-                    active: false,
-                    description:
-                        "Exclusive content about the animated series and the coaches.",
-                },
-            ],
-        }
-    ]
+	exclu: [
+		{
+			season: 1,
+			description:
+				"Here are the exclusive content featured in the animated series. The exclusive content is a great way to learn more about the coaches and their experiences.",
+			code: "1023",
+			episodes: [
+				{
+					episode: 1,
+					title: "Exclusive content",
+					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					time: "12",
+					active: false,
+					description: "Exclusive content about the animated series and the coaches.",
+				},
+			],
+		},
+		{
+			season: 2,
+			description:
+				"Here are the exclusive content featured in the animated series. The exclusive content is a great way to learn more about the coaches and their experiences.",
+			code: "1024",
+			episodes: [
+				{
+					episode: 1,
+					title: "Exclusive content",
+					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					time: "12",
+					active: false,
+					description: "Exclusive content about the animated series and the coaches.",
+				},
+			],
+		},
+	],
 };
