@@ -1,18 +1,31 @@
 <script setup>
+	// Load stored codes from local storage if available
+	const storedCodes = typeof localStorage !== "undefined" ? JSON.parse(localStorage.getItem("excluCodes")) || {} : {};
+	const excluCodes = ref(storedCodes); // Store entered codes for each season
+
 	const { data } = await useAsyncData("allData", () => $fetch("/api/serie"));
 
 	const currentCategory = ref("serie");
 	const currentSeason = ref(1);
 
-	const excluCodes = ref({}); // Store entered codes for each season
+	const isClient = ref(false);
+
+	onMounted(() => {
+		isClient.value = true; // Ensure this runs only on the client
+	});
 
 	const isExcluSeasonLocked = computed(() => {
+		if (!isClient.value) return false; // Avoid mismatch during server-side rendering
 		const excluSeason = data.value.exclu.find((season) => season.season === currentSeason.value);
 		return excluSeason?.code && excluSeason.code !== excluCodes.value[currentSeason.value]?.join("");
 	});
 
 	const unlockExcluSeason = (code) => {
 		excluCodes.value[currentSeason.value] = code.split(""); // Update the entered code for the current season
+		// Save updated codes to local storage if available
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("excluCodes", JSON.stringify(excluCodes.value));
+		}
 	};
 
 	const handleCodeInput = (index, value) => {

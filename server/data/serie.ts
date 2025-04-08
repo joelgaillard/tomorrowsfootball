@@ -122,7 +122,7 @@ export const data = {
 					description: "Formatrice, a coach educator, shares her insights on the formation of coaches.",
 				},
 				{
-					episode: 6,
+					episode: 7,
 					title: "Carla Ward",
 					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
 					time: "14",
