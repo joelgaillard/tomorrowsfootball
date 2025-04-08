@@ -8,11 +8,37 @@
 
 	const isExcluSeasonLocked = computed(() => {
 		const excluSeason = data.value.exclu.find((season) => season.season === currentSeason.value);
-		return excluSeason?.code && excluSeason.code !== excluCodes.value[currentSeason.value];
+		return excluSeason?.code && excluSeason.code !== excluCodes.value[currentSeason.value]?.join("");
 	});
 
 	const unlockExcluSeason = (code) => {
-		excluCodes.value[currentSeason.value] = code; // Update the entered code for the current season
+		excluCodes.value[currentSeason.value] = code.split(""); // Update the entered code for the current season
+	};
+
+	const handleCodeInput = (index, value) => {
+		if (!excluCodes.value[currentSeason.value]) {
+			excluCodes.value[currentSeason.value] = [];
+		}
+		excluCodes.value[currentSeason.value][index] = value;
+		if (value && index < 3) {
+			// Automatically focus the next input
+			const nextInput = document.querySelectorAll(".input")[index + 1];
+			if (nextInput) nextInput.focus();
+		}
+		unlockExcluSeason(excluCodes.value[currentSeason.value].join(""));
+	};
+
+	const handleBackspace = (index, event) => {
+		if (!excluCodes.value[currentSeason.value]) return;
+		if (!excluCodes.value[currentSeason.value][index] && index > 0) {
+			// Move focus to the previous input if the current one is empty
+			const prevInput = document.querySelectorAll(".input")[index - 1];
+			if (prevInput) prevInput.focus();
+		} else {
+			// Clear the current input
+			excluCodes.value[currentSeason.value][index] = "";
+			unlockExcluSeason(excluCodes.value[currentSeason.value].join(""));
+		}
 	};
 
 	const items = computed(() => {
@@ -307,6 +333,10 @@
 							</li>
 						</ul>
 					</div>
+					<p v-if="currentCategory === 'exclu'">
+						Hidden clues are embedded in episodes of “Coach Like a Woman”. Uncover secrets, and gain access to
+						exclusive behind-the-scenes content and special episode!
+					</p>
 					<p>
 						{{
 							currentCategory === "serie"
@@ -317,14 +347,19 @@
 						}}
 					</p>
 				</div>
-				<div v-if="currentCategory === 'exclu' && isExcluSeasonLocked" class="text-center text-gray-500 mt-8">
-					<p>This season is locked. Please enter the code to unlock:</p>
-					<input
-						type="text"
-						class="input input-bordered mt-4"
-						placeholder="Enter code"
-						v-model="excluCodes[currentSeason]"
-						@input="unlockExcluSeason(excluCodes[currentSeason])" />
+				<div v-if="currentCategory === 'exclu' && isExcluSeasonLocked" class="text-center text-gray-500">
+					<p>Enter the code here:</p>
+					<div class="flex justify-center gap-2 mt-4">
+						<input
+							type="text"
+							class="input input-bordered text-center w-12"
+							maxlength="1"
+							v-for="index in 4"
+							:key="index"
+							:value="excluCodes[currentSeason]?.[index - 1] || ''"
+							@input="handleCodeInput(index - 1, $event.target.value)"
+							@keydown.backspace="handleBackspace(index - 1, $event)" />
+					</div>
 				</div>
 				<div
 					v-if="!(currentCategory === 'exclu' && isExcluSeasonLocked)"
