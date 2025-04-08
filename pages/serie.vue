@@ -1,5 +1,5 @@
 <script setup>
-	const { data } = await useAsyncData("allData", () => $fetch("/api/serie"))
+	const { data } = await useAsyncData("allData", () => $fetch("/api/serie"));
 
 	const currentCategory = ref("serie");
 	const currentSeason = ref(1);
@@ -214,32 +214,55 @@
 					@click="currentCategory = 'interviews'">
 					Interviews
 				</h3>
+				<h3
+					class="text-6xl cursor-pointer flex items-center gap-2"
+					:class="{ 'font-bold': currentCategory === 'Exclu' }"
+					@click="currentCategory = 'Exclu'">
+					Exclu
+					<span class="material-symbols-rounded"> lock </span>
+				</h3>
 			</div>
 			<div class="flex flex-col items-start gap-12 w-full">
-				<div class="dropdown">
-					<div tabindex="0" role="button" class="btn btn-outline">
-						Season {{ currentSeason }} <span class="material-symbols-rounded">arrow_drop_down</span>
+				<div class="flex flex-col items-start gap-6 w-full">
+					<div class="dropdown">
+						<div tabindex="0" role="button" class="btn btn-outline">
+							Season {{ currentSeason }} <span class="material-symbols-rounded">arrow_drop_down</span>
+						</div>
+						<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+							<li
+								v-for="season in currentCategory === 'serie' ? data.serie : data.interviews"
+								:key="season.season">
+								<a
+									href="#"
+									class="flex flex-row items-center gap-2"
+									@click.prevent="currentSeason = season.season">
+									<span
+										class="material-symbols-rounded"
+										:class="{ 'text-primary': currentSeason === season.season }"
+										>check_circle</span
+									>
+									<span>Season {{ season.season }}</span>
+								</a>
+							</li>
+						</ul>
 					</div>
-					<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-						<li v-for="season in currentCategory === 'serie' ? data.serie : data.interviews" :key="season.season">
-							<a
-								href="#"
-								class="flex flex-row items-center gap-2"
-								@click.prevent="currentSeason = season.season">
-								<span
-									class="material-symbols-rounded"
-									:class="{ 'text-primary': currentSeason === season.season }"
-									>check_circle</span
-								>
-								<span>Season {{ season.season }}</span>
-							</a>
-						</li>
-					</ul>
+					<p>
+						{{
+							currentCategory === "serie"
+								? data.serie.find((season) => season.season === currentSeason)?.description
+								: data.interviews.find((season) => season.season === currentSeason)?.description
+						}}
+					</p>
 				</div>
 				<div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
 					<template v-for="item in items" :key="item.episode">
 						<div class="flex flex-col items-start gap-4" @click="!item.active && selectItem(item)">
-							<BaseCard :title="item.title" :imageSrc="item.imageSrc" :time="item.time" :active="item.active" :numEpisode="item.episode" />
+							<BaseCard
+								:title="item.title"
+								:imageSrc="item.imageSrc"
+								:time="item.time"
+								:active="item.active"
+								:numEpisode="item.episode" />
 						</div>
 					</template>
 				</div>
