@@ -135,8 +135,7 @@ export const data = {
 	exclu: [
 		{
 			season: 1,
-			description:
-				"Here are the exclusive content featured in the animated series. The exclusive content is a great way to learn more about the coaches and their experiences.",
+			description: "Hint: The composition of the violet team is the key.",
 			code: "1023",
 			episodes: [
 				{
@@ -152,7 +151,7 @@ export const data = {
 		{
 			season: 2,
 			description:
-				"Here are the exclusive content featured in the animated series. The exclusive content is a great way to learn more about the coaches and their experiences.",
+				"Hint: I don't know what to write here. I don't know what to write here.",
 			code: "1024",
 			episodes: [
 				{

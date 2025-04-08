@@ -337,7 +337,7 @@
 						Hidden clues are embedded in episodes of “Coach Like a Woman”. Uncover secrets, and gain access to
 						exclusive behind-the-scenes content and special episode!
 					</p>
-					<p>
+					<p :class="{ 'text-secondary': currentCategory === 'exclu' }">
 						{{
 							currentCategory === "serie"
 								? data.serie.find((season) => season.season === currentSeason)?.description
@@ -347,12 +347,12 @@
 						}}
 					</p>
 				</div>
-				<div v-if="currentCategory === 'exclu' && isExcluSeasonLocked" class="text-center text-gray-500">
+				<div v-if="currentCategory === 'exclu' && isExcluSeasonLocked" class="flex flex-col items-start w-full">
 					<p>Enter the code here:</p>
-					<div class="flex justify-center gap-2 mt-4">
+					<div class="flex justify-center gap-4 mt-4 w-full">
 						<input
 							type="text"
-							class="input input-bordered text-center w-12"
+							class="input input-secondary text-center w-24 h-24 text-xl text-neutral"
 							maxlength="1"
 							v-for="index in 4"
 							:key="index"
