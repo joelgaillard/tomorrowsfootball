@@ -1,8 +1,14 @@
 import crypto from "crypto";
 
-export default async (event) => {
-  const body = await readBody(event);
+export default defineEventHandler(async (event) => {
+  if (getMethod(event) !== 'PUT') {
+    throw createError({
+      statusCode: 405,
+      statusMessage: 'Méthode non autorisée',
+    })
+  }
 
+  const body = await readBody(event);
   const config = useRuntimeConfig();
 
   const apiKey = config.MAILCHIMP_API_KEY;
@@ -37,6 +43,7 @@ export default async (event) => {
   );
 
   const result = await res.json();
+
   if (!res.ok) {
     throw createError({
       statusCode: 400,
@@ -45,4 +52,4 @@ export default async (event) => {
   }
 
   return result;
-};
+});
