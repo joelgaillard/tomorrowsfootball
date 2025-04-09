@@ -32,7 +32,7 @@ const goToEvent = () => {
 </script>
 
 <template>
-  <div class="flex flex-col card bg-base-100 shadow-sm w-full gap-8 h-full">
+  <div class="flex flex-col card bg-base-200 shadow-sm w-full gap-8 h-full">
     <div>
       <img :src="image_url" :alt="title" class="w-full h-60 object-right-top object-cover rounded-2xl" />
     </div>
