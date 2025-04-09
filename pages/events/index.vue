@@ -26,7 +26,7 @@
 
         <!-- Section other events -->
         <div v-if="otherEvents" class="flex flex-col gap-8">
-            <div class="flex flex-col flex-wrap justify-between md:items-center flex-row">
+            <div class="flex flex-col flex-wrap justify-between md:items-center md:flex-row">
                 <h2 class="text-6xl font-bold ">Other events</h2>
                 <details class="dropdown w-full md:w-auto items-center">
                     <summary class="btn text-2xl border-neutral flex justify-between items-center px-4">
