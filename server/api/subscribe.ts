@@ -1,11 +1,11 @@
 import crypto from "crypto";
 
 export default defineEventHandler(async (event) => {
-  if (getMethod(event) !== 'PUT') {
+  if (event.method !== 'PUT') {
     throw createError({
       statusCode: 405,
       statusMessage: 'Méthode non autorisée',
-    })
+    });
   }
 
   const body = await readBody(event);
