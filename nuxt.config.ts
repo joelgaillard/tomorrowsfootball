@@ -31,5 +31,16 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY,
 		MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
-	}
+	},
+  image: {
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '2xl': 1536
+    }
+  }
 });

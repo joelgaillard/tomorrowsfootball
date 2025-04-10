@@ -3,10 +3,13 @@
     <div class="flex flex-col gap-12">
       <h1 class="text-7xl font-bold">Become a coach</h1>
       <div class="flex flex-col-reverse gap-6 md:flex-row">
-        <img
+        <NuxtImg
           class="rounded-2xl object-cover object-center md:w-1/2"
           src="/img/become-a-coach/become-a-coach-1.jpeg"
           alt="Become a coach"
+          sizes="100vw md:50vw"
+          format="webp"
+          loading="lazy"
         />
         <div class="flex flex-col gap-8 justify-center md:w-1/2">
           <h2 class="text-5xl font-bold">
@@ -40,19 +43,25 @@
           </li>
         </ul>
       </div>
-      <img
+      <NuxtImg
         class="rounded-2xl object-cover object-right md:w-1/2"
         src="/img/become-a-coach/become-a-coach-2.jpeg"
         alt="Become a coach"
+        sizes="100vw md:50vw"
+        format="webp"
+        loading="lazy"
       />
     </div>
 
     <div class="flex flex-col gap-12">
       <div class="flex flex-col-reverse gap-6 md:flex-row">
-        <img
+        <NuxtImg
           class="rounded-2xl object-cover object-center md:w-1/2"
           src="/img/become-a-coach/become-a-coach-3.jpeg"
           alt="Become a coach"
+          sizes="100vw md:50vw"
+          format="webp"
+          loading="lazy"
         />
         <div class="flex flex-col gap-8 justify-center md:w-1/2">
           <h2 class="text-5xl font-bold">How to get started</h2>
@@ -121,10 +130,13 @@
           <p>It depends on the region, but often between 3 and 5 hours.</p>
         </div>
       </div>
-      <img
+      <NuxtImg
         class="rounded-2xl object-cover object-center md:w-1/2"
         src="/img/become-a-coach/become-a-coach-4.jpeg"
         alt="Become a coach"
+        sizes="100vw md:50vw"
+        format="webp"
+        loading="lazy"
       />
     </div>
 
