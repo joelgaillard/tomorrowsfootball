@@ -14,25 +14,13 @@ export default defineNuxtConfig({
         },
       ],
     },
-    baseURL: "/",
   },
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
-  eslint: {
-    config: {
-      stylistic: {
-        quotes: "single",
-      },
-    },
-  },
   css: ["~/assets/app.css"],
   modules: ["@nuxt/eslint", "@nuxt/image", "@nuxt/ui", "@nuxt/icon"],
   runtimeConfig: {
     MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY,
     MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
-  },
-  ssr: true,
-  nitro: {
-    preset: "netlify",
-  },
+  }
 });
