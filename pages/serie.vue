@@ -338,8 +338,7 @@
 									@click.prevent="currentSeason = season.season">
 									<span
 										class="material-symbols-rounded"
-										:class="{ 'text-primary': currentSeason === season.season }"
-										>check_circle</span
+										>{{ currentSeason === season.season ? "radio_button_checked" : "radio_button_unchecked" }}</span
 									>
 									<span>Season {{ season.season }}</span>
 								</a>
