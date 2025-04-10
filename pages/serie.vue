@@ -264,14 +264,15 @@
 		<div class="flex flex-col items-start gap-16 w-full">
 			<h1 class="text-7xl font-bold">Coach like a woman</h1>
 			<div class="player flex flex-col items-center md:flex-row gap-4 w-full">
-				<figure class="rounded-box relative md:w-1/2">
+				<!-- <figure class="rounded-box relative md:w-1/2">
 					<img :src="selectedItem.imageSrc" alt="Selected Item" class="rounded-box opacity-70" />
 					<p class="material-symbols-rounded">
 						<span class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-7xl"
 							>play_circle</span
 						>
 					</p>
-				</figure>
+				</figure> -->
+				<BasePlayer :title="getDynamicTitle(selectedItem)" :posterSrc="selectedItem.imageSrc" :videoSrc="selectedItem.videoSrc" />
 				<div class="flex flex-col items-start gap-2 md:w-1/2">
 					<p class="text-sm text-gray-500">{{ selectedItem.category }}</p>
 					<h2 class="text-4xl font-bold">{{ getDynamicTitle(selectedItem) }}</h2>
@@ -336,10 +337,9 @@
 									href="#"
 									class="flex flex-row items-center gap-2"
 									@click.prevent="currentSeason = season.season">
-									<span
-										class="material-symbols-rounded"
-										>{{ currentSeason === season.season ? "radio_button_checked" : "radio_button_unchecked" }}</span
-									>
+									<span class="material-symbols-rounded">{{
+										currentSeason === season.season ? "radio_button_checked" : "radio_button_unchecked"
+									}}</span>
 									<span>Season {{ season.season }}</span>
 								</a>
 							</li>

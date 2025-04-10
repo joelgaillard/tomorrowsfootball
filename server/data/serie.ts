@@ -8,7 +8,8 @@ export const data = {
 				{
 					episode: 1,
 					title: "New start",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/1stSceneEp1.mp4",
 					time: "12",
 					active: true,
 					description:
@@ -17,7 +18,8 @@ export const data = {
 				{
 					episode: 2,
 					title: "First step",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "15",
 					active: false,
 					description:
@@ -26,7 +28,8 @@ export const data = {
 				{
 					episode: 3,
 					title: "Find your style",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "10",
 					active: false,
 					description: "Emily struggles to find her coaching style while dealing with the players' expectations.",
@@ -34,7 +37,8 @@ export const data = {
 				{
 					episode: 4,
 					title: "Hard training",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "20",
 					active: false,
 					description: "Emily faces tough decisions regarding player positions and strategies.",
@@ -42,7 +46,8 @@ export const data = {
 				{
 					episode: 5,
 					title: "The tournament",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "18",
 					active: false,
 					description: "The team participates in a local tournament, testing their skills and teamwork.",
@@ -50,7 +55,8 @@ export const data = {
 				{
 					episode: 6,
 					title: "Coaching licence",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "14",
 					active: false,
 					description:
@@ -59,7 +65,8 @@ export const data = {
 				{
 					episode: 7,
 					title: "Training camp",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "22",
 					active: false,
 					description: "The team goes on a training camp to bond and improve their skills.",
@@ -76,7 +83,8 @@ export const data = {
 				{
 					episode: 1,
 					title: "Pia Sundhage",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "12",
 					active: false,
 					description: "Pia Sundhage, a renowned coach, shares her insights on coaching and leadership.",
@@ -84,7 +92,8 @@ export const data = {
 				{
 					episode: 2,
 					title: "Emma Hayes",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "15",
 					active: false,
 					description: "Emma Hayes, a successful coach, discusses her coaching philosophy and experiences.",
@@ -92,7 +101,8 @@ export const data = {
 				{
 					episode: 3,
 					title: "Sarina Wiegman",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "10",
 					active: false,
 					description: "Sarina Wiegman, a prominent coach, shares her journey and insights into coaching.",
@@ -100,7 +110,8 @@ export const data = {
 				{
 					episode: 4,
 					title: "Lia Wälti",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "18",
 					active: false,
 					description: "Lia Wälti, a talented player, shares her experiences and insights on the game.",
@@ -108,7 +119,8 @@ export const data = {
 				{
 					episode: 5,
 					title: "Sonia Bompastor",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "20",
 					active: false,
 					description: "Sonia Bompastor, a respected coach, discusses her coaching style and experiences.",
@@ -116,7 +128,8 @@ export const data = {
 				{
 					episode: 6,
 					title: "Formatrice",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "14",
 					active: false,
 					description: "Formatrice, a coach educator, shares her insights on the formation of coaches.",
@@ -124,7 +137,8 @@ export const data = {
 				{
 					episode: 7,
 					title: "Carla Ward",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "14",
 					active: false,
 					description: "Carla Ward, a rising coach, shares her journey and insights into coaching.",
@@ -141,7 +155,8 @@ export const data = {
 				{
 					episode: 1,
 					title: "Exclusive content",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "12",
 					active: false,
 					description: "Exclusive content about the animated series and the coaches.",
@@ -157,7 +172,8 @@ export const data = {
 				{
 					episode: 1,
 					title: "Exclusive content",
-					imageSrc: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+					imageSrc: "img/serie/Generique.png",
+					videoSrc: "video/Generique.mp4",
 					time: "12",
 					active: false,
 					description: "Exclusive content about the animated series and the coaches.",
