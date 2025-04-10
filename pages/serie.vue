@@ -272,7 +272,7 @@
 						>
 					</p>
 				</figure> -->
-				<BasePlayer/>
+				<BasePlayer :title="getDynamicTitle(selectedItem)" :posterSrc="selectedItem.imageSrc" :videoSrc="selectedItem.videoSrc" />
 				<div class="flex flex-col items-start gap-2 md:w-1/2">
 					<p class="text-sm text-gray-500">{{ selectedItem.category }}</p>
 					<h2 class="text-4xl font-bold">{{ getDynamicTitle(selectedItem) }}</h2>
