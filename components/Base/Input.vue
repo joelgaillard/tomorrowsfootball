@@ -1,7 +1,7 @@
 <template>
     <fieldset class="form-control flex flex-col gap-1 w-full">
         <label v-if="label" class="label text text-2xl font-semibold text-secondary-content">
-            {{ label }}
+            {{ label }} <span class="text-primary" v-if="required">*</span>
         </label>
         <input class=" border-primary-content bg-base-200 focus:outline-none focus:border-secondary "
             :value="modelValue"
@@ -22,7 +22,7 @@ defineProps({
     type: { type: String, default: 'text' },
     placeholder: String,
     error: String,
-    required: { type: Boolean, default: false }
+    required: { type: Boolean, default: true }
 });
 
 defineEmits(['update:modelValue']);
