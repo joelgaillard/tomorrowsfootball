@@ -6,6 +6,7 @@
 		{ to: "/become-a-coach", label: "Become a coach" },
 		{ to: "/giveaway", label: "Giveaway" },
 		{ to: "/events", label: "Events" },
+		{ to: "/join", label: "Join the community" }
 	]);
 </script>
 

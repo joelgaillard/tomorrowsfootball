@@ -37,6 +37,7 @@ export default defineEventHandler(async (event) => {
           COACH: body.coach,
           RELATION: body.relation,
           CONTACT: body.contact,
+          PHONE: body.phone,
         },
       }),
     }
