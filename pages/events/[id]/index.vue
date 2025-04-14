@@ -1,23 +1,33 @@
 <script setup lang="ts">
+const route = useRoute();
+
+const id = 8;
+const realId = route.params.id;
+if (!/^\d+$/.test(realId)) {
+  throw createError({ statusCode: 400, message: "Invalid event ID" });
+}
+
+const { data: event } = await useAsyncData("event", () =>
+  $fetch("/api/events/" + id)
+);
+
+const { data: realEvent } = await useAsyncData("realEvent", () =>
+  $fetch("/api/events/" + realId)
+); 
+
 const { data: allEvents } = await useAsyncData("allEvents", () =>
   $fetch("/api/events")
 );
 
-const nextEvent = ref(null);
-
-if (allEvents.value && allEvents.value.length > 0) {
-  const nextEventId = allEvents.value[0].id;
-  const { data: nextEventData } = await useFetch(`/api/events/${nextEventId}`);
-  nextEvent.value = nextEventData.value;
-}
-
-const otherEvents = allEvents.value.slice(1).map((event: any) => ({
-  id: event.id,
-  title: event.title,
-  date: event.date,
-  place: event.place,
-  image_url: event.image_url,
-}));
+const otherEvents = allEvents.value
+  .filter((event: any) => event.id !== realId)
+  .map((event: any) => ({
+    id: event.id,
+    title: event.title,
+    date: event.date,
+    place: event.place,
+    image_url: event.image_url,
+  }));
 
 const selectedRegions = ref<string[]>([]);
 
@@ -27,7 +37,7 @@ const availableRegions = computed(() => {
 });
 
 const filteredEvents = computed(() => {
-  if (selectedRegions.value.length === 0) return otherEvents; // Afficher tout si aucune sélection
+  if (selectedRegions.value.length === 0) return otherEvents;
   return otherEvents.filter((event) =>
     selectedRegions.value.includes(event.place)
   );
@@ -39,14 +49,13 @@ const resetSelection = () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-16 py-32 px-8">
-    <h1 class="text-7xl font-bold">Events</h1>
-    <div v-if="nextEvent" class="flex flex-col gap-8">
-      <h2 class="text-6xl font-bold">Next event</h2>
+  <div v-if="event && realEvent" class="flex flex-col gap-16 py-32 px-8">
+    <h1 class="text-7xl font-bold">{{ realEvent.title }}</h1>
+    <div class="flex flex-col gap-8">
       <div class="flex flex-col gap-5 md:flex-row">
         <NuxtImg
-          :src="nextEvent.image_url"
-          :alt="nextEvent.title"
+          :src="realEvent.image_url"
+          :alt="realEvent.title"
           class="rounded-2xl md:h-96 object-top object-cover md:w-1/2"
           sizes="100vw md:50vw"
           format="webp"
@@ -54,28 +63,57 @@ const resetSelection = () => {
         />
         <div class="flex flex-col gap-12 md:w-1/2">
           <div class="flex flex-col gap-4">
-            <div class="text-4xl font-bold">{{ nextEvent.title }}</div>
-            <div class="text-3xl font-bold">
-              {{ formatDate(nextEvent.date) }} - {{ nextEvent.place }}
+            <div class="text-4xl font-bold">
+              {{ formatDate(realEvent.date) }} - {{ realEvent.place }}
             </div>
-            <p class="text-2xl">{{ nextEvent.desc }}</p>
+            <p class="text-2xl">{{ realEvent.desc ? realEvent.desc : event.desc }}</p>
           </div>
-          <div class="flex gap-4">
-            <NuxtLink
-              class="btn btn-primary btn-outline"
-              :to="`/events/${nextEvent.id}`"
-            >
-              More details
-            </NuxtLink>
-            <NuxtLink
-              class="btn btn-primary"
-              :to="`/events/${nextEvent.id}/register`"
-            >
-              Register
-            </NuxtLink>
-          </div>
+          <NuxtLink
+            class="btn btn-primary md:self-end"
+            :to="`/events/${realId}/register`"
+          >
+            Register
+          </NuxtLink>
         </div>
       </div>
+    </div>
+    <div class="flex flex-col gap-8">
+      <h2 class="text-6xl font-bold">Planning</h2>
+
+      <div class="flex flex-col gap-12 md:flex-row text-2xl">
+        <div class="flex flex-col gap-8 md:w-1/2">
+          <div>
+            <p class="">Duration : {{ event.duration }}</p>
+            <p class="text-2xl">Venue : {{ event.address }}</p>
+          </div>
+
+          <div
+            v-for="(item, index) in event.planning"
+            :key="index"
+            class="flex flex-col"
+          >
+            <p class="font-bold">{{ item.time }} - {{ item.title }}</p>
+            <p v-if="item.subtitle">{{ item.subtitle }}</p>
+            <ul class="list-disc pl-4">
+              <li
+                v-for="(desc, descIndex) in item.description"
+                :key="descIndex"
+              >
+                {{ desc }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <BaseMap :addressOrUrl="realEvent.address ? realEvent.address : realEvent.place"></BaseMap>
+        </div>
+      </div>
+      <NuxtLink
+        class="btn btn-primary md:self-end"
+        :to="`/events/${realId}/register`"
+      >
+        Register
+      </NuxtLink>
     </div>
     <div v-if="otherEvents" class="flex flex-col gap-8">
       <div

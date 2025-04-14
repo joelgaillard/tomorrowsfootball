@@ -1,10 +1,10 @@
 import crypto from "crypto";
 
 export default defineEventHandler(async (event) => {
-  if (event.method !== 'PUT') {
+  if (event.method !== "PUT") {
     throw createError({
       statusCode: 405,
-      statusMessage: 'Méthode non autorisée',
+      statusMessage: "Méthode non autorisée",
     });
   }
 
@@ -37,6 +37,8 @@ export default defineEventHandler(async (event) => {
           COACH: body.coach,
           RELATION: body.relation,
           CONTACT: body.contact,
+          PHONE: body.phone,
+          EVENT: body.eventId,
         },
       }),
     }
