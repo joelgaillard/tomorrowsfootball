@@ -92,7 +92,7 @@
             </p>
             <p>
               <span class="text-primary font-bold">Step 4:</span>
-              <span class="font-bold">Keep growing </span>(optional)
+              <span class="font-bold"> Keep growing </span>(optional)
             </p>
             <p>
               If you want to go further, you can follow advanced coaching
@@ -110,7 +110,7 @@
     <div class="flex flex-col gap-12 md:flex-row">
       <div class="flex flex-col gap-8 justify-center md:w-1/2">
         <h2 class="text-5xl font-bold">Practical information</h2>
-        <div>
+        <div class="text-2xl">
           <p class="font-bold text-primary">Where to register?</p>
           <p>Official ASF registration page</p>
           <p class="font-bold text-primary">When are the courses?</p>
@@ -144,11 +144,17 @@
       <div class="flex flex-col gap-8 justify-center">
         <h2 class="text-5xl font-bold">Ready to take the first step?</h2>
         <p class="text-2xl">
-          You don’t need to be a football expert — just passionate and
+          You don’t need to be a football expert, just passionate and
           motivated. Switzerland needs more women on the sidelines, leading with
           confidence.
         </p>
-          <a class="btn btn-primary md:self-end" href="https://www.football.ch/fr/asf/trainer/news/suivez-un-cours-c-basic-et-devenez-entraîneure.aspx"> More information </a>
+        <NuxtLink
+          class="btn btn-primary md:self-end"
+          to="https://www.football.ch/fr/asf/trainer/news/suivez-un-cours-c-basic-et-devenez-entraîneure.aspx"
+          rel="noopener noreferrer"
+          target="_blank"
+          >More informations</NuxtLink
+        >
       </div>
     </div>
   </div>
