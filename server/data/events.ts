@@ -45,7 +45,7 @@ export const events = [
   {
     id: "7",
     title: "Conference and workshop",
-    place: "Beaulieu Lausanne",
+    place: "Lausanne",
     date: "2025-07-20",
     image_url: "img/events/7.png",
   },
