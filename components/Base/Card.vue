@@ -10,7 +10,7 @@
 		},
 		imageSrc: {
 			type: String,
-			default: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+			default: "img/serie/Generique.png",
 		},
 		time: {
 			type: String,
@@ -35,7 +35,7 @@
 			<p class="text-sm text-gray-500 pt-2 pl-3">Episode {{ numEpisode }}</p>
 			<div class="flex flex-row justify-between px-3 pb-2">
 				<p :class="{ 'font-bold': active }">{{ title }}</p>
-				<p :class="{ 'font-bold': active }">{{ time }}min.</p>
+				<p :class="{ 'font-bold': active }">{{ time }}</p>
 			</div>
 		</div>
 	</div>
