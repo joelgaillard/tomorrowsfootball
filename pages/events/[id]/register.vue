@@ -2,13 +2,15 @@
 const route = useRoute();
 
 const id = route.params.id;
-if (!/^\d+$/.test(id)) {
-  throw createError({ statusCode: 400, message: "Invalid event ID" });
+
+const { data: event, error } = await useAsyncData(`event-${id}`, () =>
+  $fetch(`/api/events/${id}`)
+);
+
+if (!event.value || error.value) {
+  throw createError({ statusCode: 404, message: "Event not found" });
 }
 
-const { data: event } = await useAsyncData("event", () =>
-  $fetch("/api/events/" + id)
-);
 
 const form = reactive({
   firstName: "",

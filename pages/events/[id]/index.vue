@@ -3,17 +3,18 @@ const route = useRoute();
 
 const id = 8;
 const realId = route.params.id;
-if (!/^\d+$/.test(realId)) {
-  throw createError({ statusCode: 400, message: "Invalid event ID" });
+
+const { data: realEvent, error } = await useAsyncData(`event-${realId}`, () =>
+  $fetch(`/api/events/${realId}`)
+);
+
+if (!realEvent.value || error.value) {
+  throw createError({ statusCode: 404, message: "Event not found" });
 }
 
 const { data: event } = await useAsyncData("event", () =>
   $fetch("/api/events/" + id)
 );
-
-const { data: realEvent } = await useAsyncData("realEvent", () =>
-  $fetch("/api/events/" + realId)
-); 
 
 const { data: allEvents } = await useAsyncData("allEvents", () =>
   $fetch("/api/events")
@@ -66,7 +67,9 @@ const resetSelection = () => {
             <div class="text-4xl font-bold">
               {{ formatDate(realEvent.date) }} - {{ realEvent.place }}
             </div>
-            <p class="text-2xl">{{ realEvent.desc ? realEvent.desc : event.desc }}</p>
+            <p class="text-2xl">
+              {{ realEvent.desc ? realEvent.desc : event.desc }}
+            </p>
           </div>
           <NuxtLink
             class="btn btn-primary md:self-end"
@@ -105,7 +108,11 @@ const resetSelection = () => {
           </div>
         </div>
         <div class="md:w-1/2">
-          <BaseMap :addressOrUrl="realEvent.address ? realEvent.address : realEvent.place"></BaseMap>
+          <BaseMap
+            :addressOrUrl="
+              realEvent.address ? realEvent.address : realEvent.place
+            "
+          ></BaseMap>
         </div>
       </div>
       <NuxtLink
