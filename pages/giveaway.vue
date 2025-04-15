@@ -86,7 +86,7 @@ async function submitForm() {
       <div class="flex flex-col gap-4">
         <div class="text-3xl text-secondary">Answer the question to enter the prize draw.</div>
         <div class="text-3xl">Good luck!</div>
-        <div class="text-3xl font-bold">What is the name of Sarah’s best friend? <span class="text-primary">*</span></div>
+        <div class="text-3xl font-bold">What is Sarah's best friend's name? <span class="text-primary">*</span></div>
 
         <fieldset class="form-control flex flex-col gap-4">
           <label class="label cursor-pointer gap-3 text-secondary-content">

@@ -12,7 +12,7 @@ export const data = {
 					videoSrc: "video/Serie-S01E01.mp4",
 					active: true,
 					description:
-						"Sarah's coach moves away, leaving her devastated. Her sister Émilie, a former player, hesitates to step in.",
+						"Sarah's coach moves away, leaving her devastated. Her sister Emily, a former player, hesitates to step in.",
 				},
 				{
 					episode: 2,
@@ -63,7 +63,7 @@ export const data = {
 					videoSrc: "-",
 					active: false,
 					description:
-						"During practice, a player challenges Émilie's decisions, causing tension. Émilie must learn to set boundaries and maintain authority without being authoritarian.",
+						"During practice, a player challenges Emily's decisions, causing tension. Emily must learn to set boundaries and maintain authority without being authoritarian.",
 				},
 				{
 					episode: 8,
@@ -72,7 +72,7 @@ export const data = {
 					videoSrc: "-",
 					active: false,
 					description:
-						"Émilie doubts herself and considers quitting. Her mentor, seeing her lack of confidence, invites her to a TWF event. Émilie realizes she's not alone and that others share her doubts, fostering mutual support and skill development.",
+						"Emily doubts herself and considers quitting. Her mentor, seeing her lack of confidence, invites her to a TWF event. Emily realizes she's not alone and that others share her doubts, fostering mutual support and skill development.",
 				},
 				{
 					episode: 9,
@@ -81,7 +81,7 @@ export const data = {
 					videoSrc: "-",
 					active: false,
 					description:
-						"The girls start to gel as a team, but two players clash. Émilie organizes an off-field workshop to discuss team values.",
+						"The girls start to gel as a team, but two players clash. Emily organizes an off-field workshop to discuss team values.",
 				},
 				{
 					episode: 10,
@@ -90,7 +90,7 @@ export const data = {
 					videoSrc: "-",
 					active: false,
 					description:
-						"In another friendly match against a weaker team, the girls lose again. Frustrated, Émilie learns to turn it into a team lesson.",
+						"In another friendly match against a weaker team, the girls lose again. Frustrated, Emily learns to turn it into a team lesson.",
 				},
 				{
 					episode: 11,
@@ -99,7 +99,7 @@ export const data = {
 					videoSrc: "-",
 					active: false,
 					description:
-						"A younger local team asks Émilie to lead a workshop, making her realize she's becoming a role model.",
+						"A younger local team asks Emily to lead a workshop, making her realize she's becoming a role model.",
 				},
 				{
 					episode: 12,
