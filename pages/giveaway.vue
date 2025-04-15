@@ -80,7 +80,7 @@ async function submitForm() {
   <form @submit.prevent="submitForm">
     <div class="flex flex-col gap-16">
       <!-- Titre -->
-      <h1 class="text-7xl font-bold">Give away</h1>
+      <h1 class="text-7xl font-bold">Giveaway</h1>
 
       <!-- Question -->
       <div class="flex flex-col gap-4">
