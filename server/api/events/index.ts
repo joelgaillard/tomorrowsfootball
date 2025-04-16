@@ -9,5 +9,5 @@ export default defineEventHandler((event) => {
   })
 
   // Retourner les événements triés avec les champs nécessaires
-  return sorted.map(({ id, title, place, date, image_url }) => ({ id, title, place, date, image_url }))
+  return sorted.map(({ id, title, place, date, image_url, image_copyright }) => ({ id, title, place, date, image_url, image_copyright }))
 })

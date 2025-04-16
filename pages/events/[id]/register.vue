@@ -76,7 +76,6 @@ async function submitForm() {
     });
     alert("Form submitted successfully!");
   } catch (err) {
-    console.error(err);
     alert(
       "An error occurred while submitting the form. Please try again later."
     );

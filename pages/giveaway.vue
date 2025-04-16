@@ -70,7 +70,6 @@ async function submitForm() {
     });
     alert('Thank you for your participation! 🎉');
   } catch (err) {
-    console.error(err);
     alert('An error occurred while submitting the form. Please try again later.');
   } finally {
     submitting.value = false;

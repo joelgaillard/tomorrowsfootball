@@ -62,7 +62,7 @@ The application uses Nuxt 3’s server-side features to handle dynamic content a
 │   ├── index.vue              # Homepage
 │   ├── giveaway.vue           # Giveaway form
 │   ├── become-a-coach.vue     # Info page for future coaches
-│   ├── serie.vue              # Streaming series
+│   ├── series.vue             # Streaming series
 │   ├── events/
 │   │   ├── index.vue          # Event list with region filters
 │   │   ├── [id]/index.vue     # Event detail page

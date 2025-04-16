@@ -28,6 +28,7 @@ const otherEvents = allEvents.value
     date: event.date,
     place: event.place,
     image_url: event.image_url,
+    image_copyright: event.image_copyright,
   }));
 
 const selectedRegions = ref<string[]>([]);
@@ -54,13 +55,15 @@ const resetSelection = () => {
     <h1 class="text-7xl font-bold">{{ realEvent.title }}</h1>
     <div class="flex flex-col gap-8">
       <div class="flex flex-col gap-5 md:flex-row">
-        <NuxtImg
+        <BaseImg
           :src="realEvent.image_url"
           :alt="realEvent.title"
-          class="rounded-2xl md:h-96 object-top object-cover md:w-1/2"
+          wrapper-class="md:w-1/2"
+          img-class="rounded-2xl md:h-96 object-top object-cover w-full"
           sizes="100vw md:50vw"
           format="webp"
           loading="lazy"
+          :copyright="realEvent.image_copyright"
         />
         <div class="flex flex-col gap-12 md:w-1/2">
           <div class="flex flex-col gap-4">
@@ -183,6 +186,7 @@ const resetSelection = () => {
           :date="event.date"
           :place="event.place"
           :image_url="event.image_url"
+          :image_copyright="event.image_copyright"
         />
       </div>
     </div>

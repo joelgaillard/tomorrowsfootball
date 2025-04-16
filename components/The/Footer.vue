@@ -17,8 +17,8 @@ const routes = router.getRoutes();
       </div>
       <div class="flex flex-col items-center gap-1">
         <p class="text-primary">Discover</p>
-        <NuxtLink to="/serie" class="cursor-pointer">The web serie</NuxtLink>
-        <NuxtLink to="/serie" class="cursor-pointer">Interview</NuxtLink>
+        <NuxtLink to="/series" class="cursor-pointer">The web series</NuxtLink>
+        <NuxtLink to="/series" class="cursor-pointer">Interview</NuxtLink>
         <NuxtLink to="/giveaway" class="cursor-pointer">Giveaway</NuxtLink>
         <NuxtLink to="/events" class="cursor-pointer">Event</NuxtLink>
       </div>

@@ -3,7 +3,7 @@
 
 	const navItems = ref([
 		{ to: "/", label: "Home" },
-		{ to: "/serie", label: "Serie" },
+		{ to: "/series", label: "Series" },
 		{ to: "/events", label: "Events" },
 		{ to: "/become-a-coach", label: "Become a coach" },
 		{ to: "/join", label: "Join the community" },
