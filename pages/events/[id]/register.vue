@@ -1,4 +1,7 @@
 <script setup>
+
+const { $csrfFetch } = useNuxtApp()
+
 const route = useRoute();
 
 const id = route.params.id;
@@ -10,6 +13,7 @@ const { data: event, error } = await useAsyncData(`event-${id}`, () =>
 if (!event.value || error.value) {
   throw createError({ statusCode: 404, message: "Event not found" });
 }
+
 
 
 const form = reactive({
@@ -66,7 +70,7 @@ async function submitForm() {
 
   submitting.value = true;
   try {
-    await $fetch("/api/subscribe", {
+    await $csrfFetch("/api/subscribe", {
       method: "PUT",
       body: form,
     });
