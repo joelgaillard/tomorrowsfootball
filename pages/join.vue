@@ -1,6 +1,5 @@
 <script setup>
-
-const { $csrfFetch } = useNuxtApp()
+const { $csrfFetch } = useNuxtApp();
 
 const form = reactive({
   firstName: "",
@@ -61,7 +60,6 @@ async function submitForm() {
     });
     alert("Form submitted successfully!");
   } catch (err) {
-    console.error(err);
     alert(
       "An error occurred while submitting the form. Please try again later."
     );
@@ -69,7 +67,6 @@ async function submitForm() {
     submitting.value = false;
   }
 }
-
 </script>
 
 <template>
@@ -77,9 +74,6 @@ async function submitForm() {
     <div class="flex flex-col gap-16">
       <!-- Titre -->
       <h1 class="text-7xl font-bold">Stay connected to Tomorrow’s Football</h1>
-      <div>
-      <h2 class="text-5xl font-bold">We’re on social media</h2>
-    </div>
       <p class="text-3xl text-secondary">
         Sign up to get the latest updates from the association, news about
         upcoming events, and access to our private channels to connect with the

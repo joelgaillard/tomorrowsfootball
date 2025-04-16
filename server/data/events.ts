@@ -6,6 +6,7 @@ export const events = [
     place: "Yverdon-les-Bains",
     date: "2025-05-03",
     image_url: "img/events/1.png",
+    image_copyright: "photomontage, yevgeniya131988 and DoloresGiraldez - stock.adobe.com",
   },
   {
     id: "2",
@@ -13,6 +14,7 @@ export const events = [
     place: "Lausanne",
     date: "2025-05-04",
     image_url: "img/events/2.png",
+    image_copyright: "Gorodenkoff - stock.adobe.com",
   },
   {
     id: "3",
@@ -20,6 +22,7 @@ export const events = [
     place: "Morges",
     date: "2025-05-08",
     image_url: "img/events/3.png",
+    image_copyright: "Gorodenkoff - stock.adobe.com",
   },
   {
     id: "4",
@@ -27,6 +30,8 @@ export const events = [
     place: "Genève",
     date: "2025-05-27",
     image_url: "img/events/4.png",
+    image_copyright: "Kalim - stock.adobe.com",
+    
   },
   {
     id: "5",
@@ -34,6 +39,7 @@ export const events = [
     place: "Vevey",
     date: "2025-06-30",
     image_url: "img/events/5.png",
+    image_copyright: "Gorodenkoff - stock.adobe.com",
   },
   {
     id: "6",
@@ -41,6 +47,7 @@ export const events = [
     place: "Bulle",
     date: "2025-07-03",
     image_url: "img/events/6.png",
+    image_copyright: "Gorodenkoff - stock.adobe.com",
   },
   {
     id: "7",
@@ -48,6 +55,7 @@ export const events = [
     place: "Lausanne",
     date: "2025-07-20",
     image_url: "img/events/7.png",
+    image_copyright: "Gorodenkoff - stock.adobe.com",
   },
   {
     id: "8",
@@ -57,6 +65,7 @@ export const events = [
     desc: "Join us for a warm, inspiring, and delicious evening all about women in coaching. Over melting raclette and lively conversation, we’ll explore the realities, challenges, and triumphs of female coaches in sports today. This event is part of the Coach like a Woman initiative, a movement to promote visibility, diversity, and empowerment in the world of sports coaching.",
     date: "2025-04-20",
     image_url: "img/events/8.png",
+    image_copyright: "Getty Images/iStockphoto",
     duration: "6:00 PM – 9:30 PM",
     planning: [
       {

@@ -17,6 +17,7 @@ const otherEvents = allEvents.value.slice(1).map((event: any) => ({
   date: event.date,
   place: event.place,
   image_url: event.image_url,
+  image_copyright: event.image_copyright,
 }));
 
 const selectedRegions = ref<string[]>([]);
@@ -44,14 +45,17 @@ const resetSelection = () => {
     <div v-if="nextEvent" class="flex flex-col gap-8">
       <h2 class="text-6xl font-bold">Next event</h2>
       <div class="flex flex-col gap-5 md:flex-row">
-        <NuxtImg
+        <BaseImg
           :src="nextEvent.image_url"
           :alt="nextEvent.title"
-          class="rounded-2xl md:h-96 object-top object-cover md:w-1/2"
+          wrapper-class="md:w-1/2"
+          img-class="rounded-2xl md:h-96 object-top object-cover w-full"
           sizes="100vw md:50vw"
           format="webp"
           loading="lazy"
-        />
+          :copyright="nextEvent.image_copyright"
+          />
+
         <div class="flex flex-col gap-12 md:w-1/2">
           <div class="flex flex-col gap-4">
             <div class="text-4xl font-bold">{{ nextEvent.title }}</div>
@@ -138,6 +142,7 @@ const resetSelection = () => {
           :date="event.date"
           :place="event.place"
           :image_url="event.image_url"
+          :image_copyright="event.image_copyright"
         />
       </div>
     </div>

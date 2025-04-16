@@ -10,8 +10,6 @@ const featuredEpisode = computed(() => {
   const firstSeason = allData.value?.serie?.find((s) => s.season === 1);
   return firstSeason?.episodes?.find((ep) => ep.episode === 1);
 });
-
-console.log("featuredEpisode", featuredEpisode.value);
 </script>
 
 <template>
@@ -31,13 +29,15 @@ console.log("featuredEpisode", featuredEpisode.value);
         >
       </div>
       <div class="md:w-1/2">
-        <NuxtImg
-          class="rounded-2xl w-full h-full object-cover object-center"
+        <BaseImg
           src="/img/home/join-us.webp"
           alt="Tomorrow’s Football - Join us"
+          wrapper-class="w-full h-full"
+          img-class="rounded-2xl w-full h-full object-cover object-center"
           sizes="100vw md:50vw"
           format="webp"
           loading="lazy"
+          copyright="TOTO MARTI"
         />
       </div>
     </div>
@@ -62,7 +62,7 @@ console.log("featuredEpisode", featuredEpisode.value);
             Dive into an animated series packed with real coaching advice from
             football professionals.
           </p>
-          <NuxtLink class="btn btn-primary btn-outline" to="/serie"
+          <NuxtLink class="btn btn-primary btn-outline" to="/series"
             >Watch now</NuxtLink
           >
         </div>
@@ -110,10 +110,9 @@ console.log("featuredEpisode", featuredEpisode.value);
           storytelling and immersive experiences, we aim to inspire and equip
           the next generation of female coaches.
         </p>
-        <NuxtLink
-          class="btn btn-primary md:self-start"
-          to="/serie"
-          >Watch the series</NuxtLink>
+        <NuxtLink class="btn btn-primary md:self-start" to="/series"
+          >Watch the series</NuxtLink
+        >
       </div>
     </div>
 
@@ -141,6 +140,7 @@ console.log("featuredEpisode", featuredEpisode.value);
           :date="event.date"
           :place="event.place"
           :image_url="event.image_url"
+          :image_copyright="event.image_copyright"
         />
       </div>
     </div>
