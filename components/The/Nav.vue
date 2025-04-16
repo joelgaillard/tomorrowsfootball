@@ -2,11 +2,12 @@
 	import { ref } from "vue";
 
 	const navItems = ref([
+		{ to: "/", label: "Home" },
 		{ to: "/serie", label: "Serie" },
-		{ to: "/become-a-coach", label: "Become a coach" },
-		{ to: "/giveaway", label: "Giveaway" },
 		{ to: "/events", label: "Events" },
-		{ to: "/join", label: "Join the community" }
+		{ to: "/become-a-coach", label: "Become a coach" },
+		{ to: "/join", label: "Join the community" },
+		{ to: "/giveaway", label: "Giveaway" }
 	]);
 </script>
 

@@ -1,4 +1,7 @@
 <script setup>
+
+const { $csrfFetch } = useNuxtApp()
+
 const form = reactive({
   answer: '',
   firstName: '',
@@ -61,7 +64,7 @@ async function submitForm() {
 
   submitting.value = true;
   try {
-    await $fetch('/api/subscribe', {
+    await $csrfFetch('/api/subscribe', {
       method: 'PUT',
       body: form
     });
@@ -80,7 +83,7 @@ async function submitForm() {
   <form @submit.prevent="submitForm">
     <div class="flex flex-col gap-16">
       <!-- Titre -->
-      <h1 class="text-7xl font-bold">Give away</h1>
+      <h1 class="text-7xl font-bold">Giveaway</h1>
 
       <!-- Question -->
       <div class="flex flex-col gap-4">
