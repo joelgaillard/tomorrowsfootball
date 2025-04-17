@@ -82,37 +82,37 @@ async function submitForm() {
   <form @submit.prevent="submitForm">
     <div class="flex flex-col gap-16">
       <!-- Titre -->
-      <h1 class="text-7xl font-bold">Giveaway</h1>
+      <h1 class="text-5xl md:text-7xl font-bold">Giveaway</h1>
 
       <!-- Question -->
       <div class="flex flex-col gap-4">
-        <div class="text-3xl text-secondary">Answer the question to enter the prize draw.</div>
-        <div class="text-3xl">Good luck!</div>
-        <div class="text-3xl font-bold">What is Sarah's best friend's name? <span class="text-primary">*</span></div>
+        <div class="text-xl md:text-3xl text-secondary">Answer the question to enter the prize draw.</div>
+        <div class="text-xl md:text-3xl">Good luck!</div>
+        <div class="text-xl md:text-3xl font-bold">What is Sarah's best friend's name? <span class="text-primary">*</span></div>
 
         <fieldset class="form-control flex flex-col gap-4">
           <label class="label cursor-pointer gap-3 text-secondary-content">
             <input type="radio" name="answer" value="Nicky" v-model="form.answer" class="radio radio-l" />
-            <span class="label-text text-2xl text-secondary-content">Nicky</span>
+            <span class="label-text text-lg md:text-2xl text-secondary-content">Nicky</span>
           </label>
           <label class="label cursor-pointer gap-3 text-secondary-content">
             <input type="radio" name="answer" value="Lea" v-model="form.answer" class="radio radio-l" />
-            <span class="label-text text-2xl text-secondary-content">Lea</span>
+            <span class="label-text text-lg md:text-2xl text-secondary-content">Lea</span>
           </label>
           <label class="label cursor-pointer gap-3 text-secondary-content">
             <input type="radio" name="answer" value="Robin" v-model="form.answer" class="radio radio-l" />
-            <span class="label-text text-2xl text-secondary-content">Robin</span>
+            <span class="label-text text-lg md:text-2xl text-secondary-content">Robin</span>
           </label>
         </fieldset>
 
-        <p v-if="formSubmitted && errors.answer" class="text-error text-xl ml-2">
+        <p v-if="formSubmitted && errors.answer" class="text-error text-base md:text-xl ml-2">
           {{ errors.answer }}
         </p>
       </div>
 
       <!-- Infos personnelles -->
       <div class="flex flex-col gap-6">
-        <h2 class="text-6xl font-bold">Personal information</h2>
+        <h2 class="text-4xl md:text-6xl font-bold">Personal information</h2>
 
         <div class="flex flex-col gap-6 md:flex-row md:gap-4">
           <BaseInput
@@ -151,7 +151,7 @@ async function submitForm() {
 
       <!-- Questions sur le football -->
       <div class="flex flex-col gap-6">
-        <h2 class="text-6xl font-bold">Some questions about football</h2>
+        <h2 class="text-4xl md:text-6xl font-bold">Some questions about football</h2>
 
         <div class="flex flex-col gap-6 md:flex-row md:gap-4">
           <BaseDropdown

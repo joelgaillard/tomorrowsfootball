@@ -3,7 +3,7 @@
     <!-- Label -->
     <label
       v-if="label"
-      class="label text text-2xl font-semibold text-secondary-content break-words whitespace-normal leading-tight"
+      class="label text text-lg md:text-2xl font-semibold text-secondary-content break-words whitespace-normal leading-tight"
     >
       {{ label }}
       <span class="text-primary" v-if="required">*</span>
@@ -14,7 +14,7 @@
       type="button"
       @click="toggleDropdown"
       :class="[
-        'btn btn-outline text-2xl py-7 px-6 w-full flex justify-between items-center font-normal hover:border-secondary',
+        'btn btn-outline text-lg md:text-2xl py-7 px-6 w-full flex justify-between items-center font-normal hover:border-secondary',
         error ? 'border-error' : '',
       ]"
     >
@@ -36,7 +36,7 @@
       >
         <div
           @click="selectOption(option)"
-          class="flex flex-row items-center gap-4 text-2xl py-2 px-4 cursor-pointer"
+          class="flex flex-row items-center gap-4 text-lg md:text-2xl py-2 px-4 cursor-pointer"
         >
           <span class="material-symbols-rounded">{{
             modelValue === option.value
@@ -49,7 +49,7 @@
     </ul>
 
     <!-- Error -->
-    <p v-if="error" class="text-error text-xl ml-2">{{ error }}</p>
+    <p v-if="error" class="text-error text-base md:text-xl ml-2">{{ error }}</p>
   </div>
 </template>
 

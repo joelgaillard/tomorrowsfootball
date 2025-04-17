@@ -28,7 +28,7 @@
 		<figure class="rounded-box relative">
 			<img :src="imageSrc" alt="Shoes" class="rounded-box opacity-70" />
 			<p v-if="!active" class="material-symbols-rounded">
-				<span class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-7xl">play_circle</span>
+				<span class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-5xl md:text-7xl">play_circle</span>
 			</p>
 		</figure>
 		<div>

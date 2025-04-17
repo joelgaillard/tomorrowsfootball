@@ -14,11 +14,11 @@
               loading="lazy"
             />
             <div class="flex flex-col gap-8 justify-center md:w-1/2"> 
-              <h1 class="text-7xl font-bold"> <span class="text-secondary">Oops</span>, that wasn't planned!</h1>
-              <p class="font-bold text-primary text-5xl">
+              <h1 class="text-5xl md:text-7xl font-bold"> <span class="text-secondary">Oops</span>, that wasn't planned!</h1>
+              <p class="font-bold text-primary text-3xl md:text-5xl">
                 Error {{ error.statusCode }}
               </p>
-              <p class="text-2xl">{{ error.message }}</p>
+              <p class="text-lg md:text-2xl">{{ error.message }}</p>
               <NuxtLink 
                 class="btn btn-primary md:self-start"
                 to="/"

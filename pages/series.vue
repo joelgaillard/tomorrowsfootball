@@ -291,7 +291,7 @@
 <template>
 	<div class="flex flex-col items-start gap-24 p-4 mt-16">
 		<div class="flex flex-col items-start gap-16 w-full">
-			<h1 class="text-7xl font-bold">Coach like a woman</h1>
+			<h1 class="text-5xl md:text-7xl font-bold">Coach like a woman</h1>
 			<div class="player flex flex-col items-center md:flex-row gap-4 w-full">
 				<BasePlayer
 					v-if="!selectedItem.notAvailable"
@@ -300,12 +300,12 @@
 					:videoSrc="selectedItem.videoSrc" />
 				<div
 					v-else
-					class="flex items-center justify-center w-full md:w-1/2 h-96 bg-base-300 text-neutral text-xl font-bold rounded-2xl">
+					class="flex items-center justify-center w-full md:w-1/2 h-96 bg-base-300 text-neutral text-base md:text-xl font-bold rounded-2xl">
 					This episode is not available yet.
 				</div>
 				<div class="flex flex-col items-start gap-2 md:w-1/2">
 					<p class="text-sm text-gray-500">{{ selectedItem.category }}</p>
-					<h2 class="text-4xl font-bold">{{ getDynamicTitle(selectedItem) }}</h2>
+					<h2 class="text-2xl md:text-4xl font-bold">{{ getDynamicTitle(selectedItem) }}</h2>
 					<p>{{ selectedItem.description }}</p>
 					<p v-if="hasMatchingItem" class="link link-primary" @click.prevent="selectMatchingItem">
 						{{ selectedItem.category === "serie" ? "View full interview" : "View related episode" }}
@@ -330,19 +330,19 @@
 		<div class="flex flex-col items-start gap-16 w-full">
 			<div class="flex flex-row items-start gap-12 w-full overflow-auto">
 				<h3
-					class="text-6xl cursor-pointer"
+					class="text-4xl md:text-6xl cursor-pointer"
 					:class="{ 'font-bold': currentCategory === 'serie' }"
 					@click="currentCategory = 'serie'">
 					Episodes
 				</h3>
 				<h3
-					class="text-6xl cursor-pointer"
+					class="text-4xl md:text-6xl cursor-pointer"
 					:class="{ 'font-bold': currentCategory === 'interview' }"
 					@click="currentCategory = 'interview'">
 					Interviews
 				</h3>
 				<h3
-					class="text-6xl cursor-pointer flex items-center gap-2"
+					class="text-4xl md:text-6xl cursor-pointer flex items-center gap-2"
 					:class="{ 'font-bold': currentCategory === 'exclu' }"
 					@click="currentCategory = 'exclu'">
 					Exclu
@@ -394,7 +394,7 @@
 					<div class="flex justify-center gap-4 mt-4 w-full">
 						<input
 							type="text"
-							class="input input-secondary text-center w-24 h-24 text-xl text-neutral"
+							class="input input-secondary text-center w-24 h-24 text-base md:text-xl text-neutral"
 							maxlength="1"
 							v-for="index in 4"
 							:key="index"
