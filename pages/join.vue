@@ -73,8 +73,8 @@ async function submitForm() {
   <form @submit.prevent="submitForm">
     <div class="flex flex-col gap-16">
       <!-- Titre -->
-      <h1 class="text-7xl font-bold">Stay connected to Tomorrow’s Football</h1>
-      <p class="text-3xl text-secondary">
+      <h1 class="text-5xl md:text-7xl font-bold">Stay connected to Tomorrow’s Football</h1>
+      <p class="text-xl md:text-3xl text-secondary">
         Sign up to get the latest updates from the association, news about
         upcoming events, and access to our private channels to connect with the
         community.

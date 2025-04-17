@@ -89,16 +89,16 @@ async function submitForm() {
   <form v-if="event" @submit.prevent="submitForm">
     <div class="flex flex-col gap-16">
       <!-- Titre -->
-      <h1 class="text-7xl font-bold">
+      <h1 class="text-5xl md:text-7xl font-bold">
         Registration for the "<span class="text-primary">{{ event.title }}</span
         >" event
       </h1>
       <div>
-        <h2 class="text-5xl font-bold">
+        <h2 class="text-3xl md:text-5xl font-bold">
           {{ formatDate(event.date) }} - {{ event.place }}
         </h2>
       </div>
-      <p class="text-3xl text-secondary">
+      <p class="text-xl md:text-3xl text-secondary">
         Interested in joining the event? Just take a moment to fill out the form
         below to complete your registration. It only takes a minute!
       </p>

@@ -51,7 +51,7 @@ const props = defineProps({
         <div>{{ date }}</div>
         <div>{{ place }}</div>
       </div>
-      <h2 class="text-4xl">{{ title }}</h2>
+      <h2 class="text-2xl md:text-4xl">{{ title }}</h2>
     </div>
     <div class="flex justify-end">
       <NuxtLink class="btn btn-primary w-auto self-end" :to="'/events/' + id">

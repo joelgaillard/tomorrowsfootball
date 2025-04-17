@@ -4,7 +4,7 @@ const routes = router.getRoutes();
 </script>
 
 <template>
-  <footer class="bg-base-200 text-xl px-10">
+  <footer class="bg-base-200 text-base md:text-xl px-10">
     <div class="divider"></div>
     <div class="text-center font-semibold bg-error p-4">
       This website is fictional and was created as part of a third-year Media

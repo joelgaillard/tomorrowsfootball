@@ -16,10 +16,10 @@ const featuredEpisode = computed(() => {
   <div class="flex flex-col gap-36 py-32 px-8">
     <div class="flex flex-col gap-6 md:flex-row">
       <div class="flex flex-col gap-12 justify-center md:w-1/2">
-        <h1 class="text-7xl font-bold">
+        <h1 class="text-5xl md:text-7xl font-bold">
           The future of women’s football coaching starts here!
         </h1>
-        <p class="text-3xl">
+        <p class="text-xl md:text-3xl">
           Tomorrow’s Football is a hub designed to empower female football
           coaches. Join our growing community, get inspired by our exclusive web
           series, and take the next step in your coaching journey!
@@ -43,8 +43,8 @@ const featuredEpisode = computed(() => {
     </div>
 
     <div class="flex flex-col gap-12">
-      <h1 class="text-7xl font-bold">What is Tomorrow’s Football?</h1>
-      <p class="text-3xl">
+      <h1 class="text-5xl md:text-7xl font-bold">What is Tomorrow’s Football?</h1>
+      <p class="text-xl md:text-3xl">
         Tomorrow’s Football is a collaborative space dedicated to female
         football coaches. Whether you're just starting out or looking to enhance
         your skills, our platform offers resources, networking opportunities,
@@ -57,8 +57,8 @@ const featuredEpisode = computed(() => {
           id="card"
           class="flex flex-col justify-around items-center text-center w-full px-6 py-20 gap-8 rounded-3xl border-base-300 border-3"
         >
-          <div class="text-3xl font-semibold">Web series & interviews</div>
-          <p class="text-2xl">
+          <div class="text-xl md:text-3xl font-semibold">Web series & interviews</div>
+          <p class="text-lg md:text-2xl">
             Dive into an animated series packed with real coaching advice from
             football professionals.
           </p>
@@ -70,8 +70,8 @@ const featuredEpisode = computed(() => {
           id="card"
           class="flex flex-col justify-around items-center text-center w-full px-6 py-20 gap-8 rounded-3xl border-base-300 border-3"
         >
-          <div class="text-3xl font-semibold">Community & support</div>
-          <p class="text-2xl">
+          <div class="text-xl md:text-3xl font-semibold">Community & support</div>
+          <p class="text-lg md:text-2xl">
             Find out how to start your coaching journey and help shape the
             future of football.
           </p>
@@ -83,8 +83,8 @@ const featuredEpisode = computed(() => {
           id="card"
           class="flex flex-col justify-around items-center text-center w-full px-6 py-20 gap-8 rounded-3xl border-base-300 border-3"
         >
-          <div class="text-3xl font-semibold">Training & events</div>
-          <p class="text-2xl">
+          <div class="text-xl md:text-3xl font-semibold">Training & events</div>
+          <p class="text-lg md:text-2xl">
             Participate in coaching workshops and discussions.
           </p>
           <NuxtLink class="btn btn-primary btn-outline" to="/events"
@@ -101,8 +101,8 @@ const featuredEpisode = computed(() => {
         :posterSrc="featuredEpisode.value?.image_url"
       />
       <div class="md:w-1/2 flex flex-col gap-12">
-        <h1 class="text-7xl font-bold">Discover our exclusive web series</h1>
-        <p class="text-3xl">
+        <h1 class="text-5xl md:text-7xl font-bold">Discover our exclusive web series</h1>
+        <p class="text-xl md:text-3xl">
           “Coach Like a Woman” is a one-of-a-kind web series that brings you
           closer to the realities of women’s football coaching. Each episode
           features interviews with experienced coaches and players, tackling
@@ -117,14 +117,14 @@ const featuredEpisode = computed(() => {
     </div>
 
     <div class="flex flex-col gap-12">
-      <h1 class="text-7xl font-bold">Stay updated on coaching events</h1>
-      <p class="text-3xl">
+      <h1 class="text-5xl md:text-7xl font-bold">Stay updated on coaching events</h1>
+      <p class="text-xl md:text-3xl">
         At Tomorrow’s Football, we believe in continuous learning and
         networking. Explore our calendar of upcoming workshops, live Q&As, and
         exclusive coaching events designed to help you grow in your career.
       </p>
       <div class="flex items-center gap-4">
-        <h2 class="text-4xl font-semibold">Our next events -</h2>
+        <h2 class="text-2xl md:text-4xl font-semibold">Our next events -</h2>
         <NuxtLink class="link link-primary" to="/events"
           >View full event calendar</NuxtLink
         >
