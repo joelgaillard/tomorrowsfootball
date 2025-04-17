@@ -11,17 +11,17 @@ The platform is built using modern web technologies and aims to blend **content,
 ## 🚀 Features
 
 - **Homepage** introducing the initiative and highlighting the streaming series.
-- **Streaming Series Page** to explore all episodes and stories.
-- **"Become a Coach" Section** with practical information and a signup form for aspiring coaches.
-- **Giveaway Form** to allow users to enter contests.
-- **Events Page** listing upcoming coaching-related events, filterable by region.
-- **Event Detail Page** with full program, map, and registration form.
-- **Join the Community** form to sign up for news and resources.
-- **Custom Error Page** for improved error handling.
+- **Streaming series page** to explore all episodes and stories.
+- **"Become a coach" page** with practical information and a signup form for aspiring coaches.
+- **Giveaway form** to allow users to enter contests.
+- **Events page** listing upcoming coaching-related events, filterable by region.
+- **Event detail page** with full program, map, and registration form.
+- **Join the community** form to sign up for news and resources.
+- **Custom error page** for improved error handling.
 
 ---
 
-## 🧠 Project Objectives
+## 🧠 Project objectives
 
 - **Promote female representation in football coaching**
 - **Inspire through storytelling**, with an original web series available directly on the platform
@@ -29,19 +29,19 @@ The platform is built using modern web technologies and aims to blend **content,
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech stack
 
 - **Framework**: [Nuxt 3](https://nuxt.com/) (Vue 3 + Vite)
 - **Styling**: Tailwind CSS
-- **Image Optimization**: Nuxt Image
-- **Component System**: Custom reusable components (e.g., `BaseMap`, `BaseRegistration`, `BaseDropdown`)
+- **Image optimization**: Nuxt Image
+- **Component system**: Custom reusable components (e.g., `BaseMap`, `BaseRegistration`, `BaseDropdown`)
 - **Server API**: Built-in with Nuxt server API (e.g. `server/api/subscribe.ts`)
-- **Mailchimp Integration**: For community, events and giveaway registration forms
-- **Google Maps**: Embedded via iframe for event venues
+- **Mailchimp integration**: For community, events and giveaway registration forms
+- **Google maps**: Embedded via iframe for event venues
 
 ---
 
-## 🧩 Nuxt Server-Side Logic
+## 🧩 Nuxt server-side logic
 
 The application uses Nuxt 3’s server-side features to handle dynamic content and API routes:
 
@@ -51,7 +51,7 @@ The application uses Nuxt 3’s server-side features to handle dynamic content a
 
 ---
 
-## 📁 Project Structure Overview
+## 📁 Project structure overview
 
 ```plaintext
 .
@@ -74,7 +74,7 @@ The application uses Nuxt 3’s server-side features to handle dynamic content a
 ├── nuxt.config.ts             # Nuxt configuration
 ```
 
-## 💻 Getting Started (Local Setup)
+## 💻 Getting started (Local setup)
 
 To run this project locally, make sure your development environment includes the following:
 
