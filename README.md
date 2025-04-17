@@ -1,6 +1,6 @@
-# ⚽ Tomorrow's Football
+# ⚽ TomorroW's Football
 
-**Tomorrow's Football** is a fictional platform designed to **encourage more women to become football coaches** by showcasing inspiring stories, offering practical resources, and organizing events. One of the project’s key components is a **dedicated streaming series** that highlights the journeys and voices of women in the world of coaching.
+**TomorroW's Football** is a fictional platform designed to **encourage more women to become football coaches** by showcasing inspiring stories, offering practical resources, and organizing events. One of the project’s key components is a **dedicated streaming series** that highlights the journeys and voices of women in the world of coaching.
 
 > 🎓 This project was developed as part of the **3rd-year Integration Project** in **Media Engineering** at [HEIG-VD](https://heig-vd.ch).
 
@@ -12,11 +12,11 @@ The platform is built using modern web technologies and aims to blend **content,
 
 - **Homepage** introducing the initiative and highlighting the streaming series.
 - **Streaming series page** to explore all episodes and stories.
-- **"Become a coach" page** with practical information and a signup form for aspiring coaches.
-- **Giveaway form** to allow users to enter contests.
 - **Events page** listing upcoming coaching-related events, filterable by region.
 - **Event detail page** with full program, map, and registration form.
+- **"Become a coach" page** with practical information and a signup form for aspiring coaches.
 - **Join the community** form to sign up for news and resources.
+- **Giveaway form** to allow users to enter contests.
 - **Custom error page** for improved error handling.
 
 ---
