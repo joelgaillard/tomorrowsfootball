@@ -85,7 +85,7 @@ export const data = {
 				},
 				{
 					episode: 10,
-					title: "Learning to Lose",
+					title: "Learning to lose",
 					imageSrc: "img/serie/Generique.png",
 					videoSrc: "-",
 					active: false,
